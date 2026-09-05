@@ -23,15 +23,3 @@ export const FOE_ART: Record<string, CharacterArt> = {
   boss1: { src: '/assets/characters/boss1.webp', alt: '镜之女王赛琳：冰蓝长卷发、水晶小皇冠和银蓝宽摆礼裙，身旁漂浮着椭圆银镜' },
   boss2: { src: '/assets/characters/boss2.webp', alt: '蚀月神姬诺克丝：靛紫长双马尾、大月牙发饰、月形斗篷和星星魔杖，露出得意的可爱笑容' },
 };
-
-const CARD_CHARACTERS: Record<string, string> = {
-  thorn: 'sentinel', bloom: 'sentinel', fracture: 'duelist', crescent: 'duelist',
-  drain: 'reaper', mist: 'wraith', insight: 'oracle', resolve: 'oracle',
-  quick: 'raven', storm: 'raven', ward: 'seraph', barrier: 'seraph',
-  echo: 'boss1', bind: 'witch', curse: 'witch', trance: 'boss0',
-  eclipse: 'boss2', nightfall: 'boss2', nova: 'boss2',
-};
-
-export function cardPortrait(id: string): string {
-  return FOE_ART[CARD_CHARACTERS[id]]?.src ?? HERO_ART.src;
-}

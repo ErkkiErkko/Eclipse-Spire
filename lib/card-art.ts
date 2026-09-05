@@ -1,0 +1,31 @@
+// Card identity is stable across upgrades and repeated copies in a deck.
+export type CardArt = { src: string; alt: string };
+
+export const CARD_ART: Record<string, CardArt> = {
+  strike: { src: '/assets/cards/strike.webp', alt: '莉雅挥动月刃，划出一道青色弦月斩击' },
+  guard: { src: '/assets/cards/guard.webp', alt: '莉雅展开月光薄纱，挡住飞来的碎石' },
+  mooncut: { src: '/assets/cards/mooncut.webp', alt: '月辉汇入月刃，莉雅拔刀斩出耀眼的一闪' },
+  quick: { src: '/assets/cards/quick.webp', alt: '莉雅像燕子般腾空折返，沿弯曲风迹挥剑' },
+  crescent: { src: '/assets/cards/crescent.webp', alt: '莉雅旋身挥剑，两道月牙剑光连续划过夜空' },
+  mist: { src: '/assets/cards/mist.webp', alt: '莉雅轻巧侧身闪入雾气，留下飘动的披风与足迹' },
+  focus: { src: '/assets/cards/focus.webp', alt: '莉雅双手聚拢弯月光点，将它们凝成一颗月珠' },
+  storm: { src: '/assets/cards/storm.webp', alt: '莉雅唤起卷满银色剑刃的旋风，横扫前方' },
+  fracture: { src: '/assets/cards/fracture.webp', alt: '莉雅的月刃劈开红色盾徽，使敌方防御破裂' },
+  ward: { src: '/assets/cards/ward.webp', alt: '莉雅持剑守望月下石桥，弯月护环在身旁升起' },
+  trance: { src: '/assets/cards/trance.webp', alt: '莉雅闭目调息，弯月随着呼吸轻轻环绕' },
+  blade: { src: '/assets/cards/blade.webp', alt: '莉雅双手持剑于心前，剑中的心形光辉唤醒力量' },
+  meteor: { src: '/assets/cards/meteor.webp', alt: '莉雅引落一颗巨大的金色流星，星光撞向地面' },
+  drain: { src: '/assets/cards/drain.webp', alt: '绯红契约将暗色水晶中的能量化为爱心，流入莉雅掌中' },
+  thorn: { src: '/assets/cards/thorn.webp', alt: '莉雅召出紫色蔷薇与绿色荆棘，毒泡在花旁升起' },
+  bind: { src: '/assets/cards/bind.webp', alt: '莉雅轻声示意安静，以封印丝带缠住一只铃铛' },
+  insight: { src: '/assets/cards/insight.webp', alt: '莉雅翻开星之书，明亮的星座从书页中浮现' },
+  nightfall: { src: '/assets/cards/nightfall.webp', alt: '莉雅在午夜月下起舞，一圈弯月剑光横扫四周' },
+  bloom: { src: '/assets/cards/bloom.webp', alt: '莉雅捧起充满生命光辉的白花，翠绿新叶悄然舒展' },
+  echo: { src: '/assets/cards/echo.webp', alt: '莉雅举起银镜，镜中与镜外映出成对的月亮' },
+  eclipse: { src: '/assets/cards/eclipse.webp', alt: '金色光环勾勒的黑月在莉雅身后升起，月刃与护盾环绕身侧' },
+  barrier: { src: '/assets/cards/barrier.webp', alt: '莉雅撑起巨大的月光晶体护罩，将红色碎片弹开' },
+  comet: { src: '/assets/cards/comet.webp', alt: '莉雅沿金色光路奔向星星，月刃拖出青色轨迹' },
+  resolve: { src: '/assets/cards/resolve.webp', alt: '莉雅静立于映月的水面，平静涟漪化成守护水环' },
+  nova: { src: '/assets/cards/nova.webp', alt: '莉雅举剑击碎天穹中的巨星，璀璨晶片向四方展开' },
+  curse: { src: '/assets/cards/curse.webp', alt: '莉雅抱着月牙枕入睡，破月阴影与梦魇飞蛾盘旋在梦中' },
+};

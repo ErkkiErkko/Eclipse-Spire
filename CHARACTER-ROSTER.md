@@ -23,7 +23,8 @@
 | boss2 | 蚀月神姬·诺克丝 | 靛紫双马尾、大月牙发饰、月形披风、星星魔杖 |
 
 图片映射集中在 lib/character-art.ts，以现有敌人 ID 读取。
-战斗、事件、结局和相关卡牌插图共同使用这一套新美术。
+战斗、事件与结局使用这一套角色立绘。
+26 种卡牌另有以当前莉雅为直接画风参考的独立场景插画，映射见 lib/card-art.ts，设计见 CARD-ART-PROMPTS.md。
 游戏存档结构与敌人 ID 保持兼容。
 
 最终图片保存在 public/assets/characters/。莉雅及 sentinel、wraith、raven、duelist、oracle、reaper
