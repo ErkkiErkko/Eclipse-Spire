@@ -1,4 +1,4 @@
-// Lossless encoding only. Images and all creative edits are produced by imagegen.
+// Delivery encoding only; no resizing or creative edits. Artwork is produced by imagegen.
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
@@ -23,7 +23,7 @@ async function main() {
       if (stats.channels[3].min < 250) throw new Error(entry.id + ': full-bleed card artwork must be opaque');
     }
     const output = path.join(destination, entry.id + '.webp');
-    await sharp(entry.path).webp({lossless:true,effort:6}).toFile(output);
+    await sharp(entry.path).webp({quality:92,smartSubsample:true,effort:6}).toFile(output);
     const encoded = await sharp(output).metadata();
     if (encoded.width !== meta.width || encoded.height !== meta.height) throw new Error(entry.id + ': encoding changed geometry');
     console.log(JSON.stringify({id:entry.id,width:meta.width,height:meta.height,bytes:(await fs.stat(output)).size,output}));

@@ -55,7 +55,7 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 
 - public/assets/characters/hero-cute-v2.webp：银发青眼的月咏·莉雅、青色蝴蝶结与月刃。
 - public/assets/characters/：守卫、歌姬、使徒、剑姬、先知、女爵、天使、魔女、处刑者和三位首领，共 12 张独立敌人立绘。
-- public/assets/cards/：26 幅独立卡图，以当前莉雅立绘为画风和角色参考，分别设计动作、道具与场景来表达牌名或效果。每幅为 1536 × 1024 不透明横幅，无损编码为 WebP。
+- public/assets/cards/：26 幅独立卡图，以当前莉雅立绘为画风和角色参考，分别设计动作、道具与场景来表达牌名或效果。每幅为 1536 × 1024 不透明横幅，使用质量 92 的 WebP 编码加快加载，保留完整分辨率；本地无损原图保存在 outputs/card-art-originals/。
 - public/assets/courtyard.png：巨大月亮与高塔下的废弃哥特圣堂、宽阔战斗地面。
 
 战斗、事件与结局使用角色立绘；手牌、牌库、奖励、商店及升级预览统一使用独立卡图。
