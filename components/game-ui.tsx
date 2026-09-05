@@ -5,6 +5,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { Progress } from '@/components/ui/progress';
 import { CARDS, CHAPTERS, FOES, NODE_LABELS } from '@/lib/game-data';
 import { reachable } from '@/lib/game-engine';
+import { cardPortrait } from '@/lib/character-art';
 import type { GameState, MapNode, OwnedCard } from '@/lib/game-engine';
 
 const icons={moon:Moon,swords:Swords,shield:Shield,sparkles:Sparkles,wind:Wind,feather:Feather,star:Star,zap:Zap,heart:Heart,flower:Flower2,eye:Eye,eclipse:Eclipse,waves:Waves,skull:Skull,gem:Gem,bell:Bell,sun:Sun,compass:Compass,hourglass:Hourglass,crown:Crown,combat:Swords,elite:Skull,camp:Flame,shop:ShoppingBag,event:HelpCircle,chest:Gift,boss:Crown};
@@ -12,7 +13,7 @@ export function Rune({name,size=20,...rest}:{name:string;size?:number;className?
 export function Tip({title,text,children}:{title:string;text?:string;children:ReactNode}){return <Tooltip><TooltipTrigger className="tip-trigger" render={<span tabIndex={0}/>}>{children}</TooltipTrigger><TooltipContent className="game-tooltip"><strong>{title}</strong>{text&&<p>{text}</p>}</TooltipContent></Tooltip>;}
 export function CardView({owned,onClick,disabled=false,selected=false,index,handSize=5,compact=false,preview=false}:{owned:OwnedCard;onClick?:()=>void;disabled?:boolean;selected?:boolean;index?:number;handSize?:number;compact?:boolean;preview?:boolean}){
  const d=CARDS[owned.id];const u=owned.up?1:0;const angle=index===undefined?0:(index-(handSize-1)/2)*Math.min(4,20/handSize);
- return <button disabled={disabled} onClick={onClick} className={`game-card ${d.type} ${selected?'selected':''} ${owned.up?'upgraded':''} ${compact?'compact':''} ${preview?'preview-card':''}`} style={{'--angle':`${angle}deg`,'--lift':`${Math.abs(angle)*2.5}px`,'--art-hue':`${(d.art%8)*18-35}deg`,'--art-x':`${35+(d.art%4)*10}%`,'--art-y':`${12+(d.art%3)*14}%`} as CSSProperties} aria-label={`${d.name}${owned.up?'升级':''}，${d.cost===99?'无法打出':d.cost+'能量'}，${d.text[u]}`}>
+ return <button disabled={disabled} onClick={onClick} className={`game-card ${d.type} ${selected?'selected':''} ${owned.up?'upgraded':''} ${compact?'compact':''} ${preview?'preview-card':''}`} style={{'--angle':`${angle}deg`,'--lift':`${Math.abs(angle)*2.5}px`,'--card-portrait':'url("'+cardPortrait(owned.id)+'")'} as CSSProperties} aria-label={`${d.name}${owned.up?'升级':''}，${d.cost===99?'无法打出':d.cost+'能量'}，${d.text[u]}`}>
   <span className="card-cost">{d.cost===99?'×':d.cost}</span><div className={`card-image art-${d.art%4}`}><Rune name={d.icon}/><span className="card-art-rune">{d.type==='power'?'✦':'✧'}</span></div><div className="card-text"><h3>{d.name}{owned.up&&<sup>＋</sup>}</h3><small>{({attack:'攻击',skill:'技能',power:'能力',curse:'诅咒'})[d.type]} <span>·</span> {d.rarity}</small><p>{d.text[u].split(/(\d+)/).map((t,i)=>/^\d+$/.test(t)?<b key={i}>{t}</b>:t)}</p></div>{index!==undefined&&<span className="card-hotkey">{index+1}</span>}{owned.up&&<span className="upgrade-mark"><ArrowUp size={10}/></span>}
  </button>;
 }

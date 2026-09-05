@@ -43,20 +43,20 @@ export const RELICS: Record<string,{name:string;icon:string;desc:string}> = {
  thread:{name:'命运丝线',icon:'sparkles',desc:'每打出一张技能牌，额外获得 2 点格挡。'},
 };
 export type Intent = { kind:'attack'|'guard'|'buff'|'debuff'|'multi'; value:number; hits?:number; label:string };
-export type FoeDef = {name:string;subtitle:string;hp:number;hue:number;pattern:Intent[]};
+export type FoeDef = {name:string;subtitle:string;hp:number;pattern:Intent[]};
 export const FOES:Record<string,FoeDef> = {
- sentinel:{name:'荆棘守卫',subtitle:'遗忘的誓言',hp:40,hue:0,pattern:[{kind:'attack',value:7,label:'荆棘斩击'},{kind:'guard',value:7,label:'荆棘之盾'},{kind:'attack',value:11,label:'破誓重击'}]},
- wraith:{name:'失声歌姬',subtitle:'回声中的幽影',hp:31,hue:35,pattern:[{kind:'debuff',value:1,label:'哀歌 · 虚弱'},{kind:'attack',value:9,label:'灵魂回响'},{kind:'multi',value:4,hits:2,label:'双重奏'}]},
- raven:{name:'黑羽使徒',subtitle:'月神的弃子',hp:33,hue:-40,pattern:[{kind:'multi',value:3,hits:2,label:'黑羽连斩'},{kind:'buff',value:2,label:'渴血'},{kind:'attack',value:9,label:'噬月'}]},
- duelist:{name:'蔷薇剑姬',subtitle:'不可触及的玫瑰',hp:49,hue:320,pattern:[{kind:'attack',value:10,label:'蔷薇突刺'},{kind:'guard',value:11,label:'剑舞架势'},{kind:'multi',value:6,hits:2,label:'双刃回旋'}]},
- oracle:{name:'盲眼先知',subtitle:'不应被看见的未来',hp:44,hue:70,pattern:[{kind:'debuff',value:2,label:'命运缠绕'},{kind:'attack',value:16,label:'星陨'},{kind:'buff',value:3,label:'禁忌预言'}]},
- reaper:{name:'收魂女爵',subtitle:'午夜的来客',hp:53,hue:180,pattern:[{kind:'attack',value:12,label:'收割'},{kind:'multi',value:5,hits:3,label:'死亡之舞'},{kind:'guard',value:12,label:'幽冥庇护'}]},
- seraph:{name:'折翼天使',subtitle:'光芒尽头的阴影',hp:66,hue:100,pattern:[{kind:'attack',value:15,label:'裁决之刃'},{kind:'debuff',value:2,label:'罪罚'},{kind:'multi',value:7,hits:3,label:'破碎羽翼'}]},
- witch:{name:'镜月魔女',subtitle:'你的倒影在微笑',hp:59,hue:245,pattern:[{kind:'guard',value:16,label:'幻月屏障'},{kind:'buff',value:3,label:'镜像增幅'},{kind:'attack',value:20,label:'月镜破碎'}]},
- elite:{name:'无名处刑者',subtitle:'精英 · 门扉的守望者',hp:76,hue:300,pattern:[{kind:'buff',value:2,label:'杀意觉醒'},{kind:'multi',value:6,hits:2,label:'处刑连斩'},{kind:'attack',value:17,label:'断罪'}]},
- boss0:{name:'缄默圣女 · 伊芙',subtitle:'第一幕首领 · 永远不会响起的钟声',hp:115,hue:25,pattern:[{kind:'attack',value:11,label:'寂静裁决'},{kind:'guard',value:13,label:'圣堂之佑'},{kind:'multi',value:6,hits:3,label:'三重祷告'},{kind:'buff',value:3,label:'黑色福音'}]},
- boss1:{name:'镜之女王 · 赛琳',subtitle:'第二幕首领 · 万千倒影，唯独没有灵魂',hp:160,hue:180,pattern:[{kind:'multi',value:6,hits:2,label:'镜影双生'},{kind:'debuff',value:2,label:'心之裂痕'},{kind:'attack',value:24,label:'破镜之刑'},{kind:'guard',value:20,label:'水银王座'}]},
- boss2:{name:'蚀月神姬 · 诺克丝',subtitle:'终幕首领 · 以黑夜为冠冕',hp:210,hue:285,pattern:[{kind:'attack',value:18,label:'月蚀之刃'},{kind:'buff',value:3,label:'永夜加冕'},{kind:'multi',value:7,hits:3,label:'星辰湮灭'},{kind:'guard',value:22,label:'无光之域'},{kind:'attack',value:30,label:'终焉'}]},
+ sentinel:{name:'荆棘守卫',subtitle:'遗忘的誓言',hp:40,pattern:[{kind:'attack',value:7,label:'荆棘斩击'},{kind:'guard',value:7,label:'荆棘之盾'},{kind:'attack',value:11,label:'破誓重击'}]},
+ wraith:{name:'失声歌姬',subtitle:'回声中的幽影',hp:31,pattern:[{kind:'debuff',value:1,label:'哀歌 · 虚弱'},{kind:'attack',value:9,label:'灵魂回响'},{kind:'multi',value:4,hits:2,label:'双重奏'}]},
+ raven:{name:'黑羽使徒',subtitle:'月神的弃子',hp:33,pattern:[{kind:'multi',value:3,hits:2,label:'黑羽连斩'},{kind:'buff',value:2,label:'渴血'},{kind:'attack',value:9,label:'噬月'}]},
+ duelist:{name:'蔷薇剑姬',subtitle:'不可触及的玫瑰',hp:49,pattern:[{kind:'attack',value:10,label:'蔷薇突刺'},{kind:'guard',value:11,label:'剑舞架势'},{kind:'multi',value:6,hits:2,label:'双刃回旋'}]},
+ oracle:{name:'盲眼先知',subtitle:'不应被看见的未来',hp:44,pattern:[{kind:'debuff',value:2,label:'命运缠绕'},{kind:'attack',value:16,label:'星陨'},{kind:'buff',value:3,label:'禁忌预言'}]},
+ reaper:{name:'收魂女爵',subtitle:'午夜的来客',hp:53,pattern:[{kind:'attack',value:12,label:'收割'},{kind:'multi',value:5,hits:3,label:'死亡之舞'},{kind:'guard',value:12,label:'幽冥庇护'}]},
+ seraph:{name:'折翼天使',subtitle:'光芒尽头的阴影',hp:66,pattern:[{kind:'attack',value:15,label:'裁决之刃'},{kind:'debuff',value:2,label:'罪罚'},{kind:'multi',value:7,hits:3,label:'破碎羽翼'}]},
+ witch:{name:'镜月魔女',subtitle:'你的倒影在微笑',hp:59,pattern:[{kind:'guard',value:16,label:'幻月屏障'},{kind:'buff',value:3,label:'镜像增幅'},{kind:'attack',value:20,label:'月镜破碎'}]},
+ elite:{name:'无名处刑者',subtitle:'精英 · 门扉的守望者',hp:76,pattern:[{kind:'buff',value:2,label:'杀意觉醒'},{kind:'multi',value:6,hits:2,label:'处刑连斩'},{kind:'attack',value:17,label:'断罪'}]},
+ boss0:{name:'缄默圣女 · 伊芙',subtitle:'第一幕首领 · 永远不会响起的钟声',hp:115,pattern:[{kind:'attack',value:11,label:'寂静裁决'},{kind:'guard',value:13,label:'圣堂之佑'},{kind:'multi',value:6,hits:3,label:'三重祷告'},{kind:'buff',value:3,label:'黑色福音'}]},
+ boss1:{name:'镜之女王 · 赛琳',subtitle:'第二幕首领 · 万千倒影，唯独没有灵魂',hp:160,pattern:[{kind:'multi',value:6,hits:2,label:'镜影双生'},{kind:'debuff',value:2,label:'心之裂痕'},{kind:'attack',value:24,label:'破镜之刑'},{kind:'guard',value:20,label:'水银王座'}]},
+ boss2:{name:'蚀月神姬 · 诺克丝',subtitle:'终幕首领 · 以黑夜为冠冕',hp:210,pattern:[{kind:'attack',value:18,label:'月蚀之刃'},{kind:'buff',value:3,label:'永夜加冕'},{kind:'multi',value:7,hits:3,label:'星辰湮灭'},{kind:'guard',value:22,label:'无光之域'},{kind:'attack',value:30,label:'终焉'}]},
 };
 export const CHAPTERS = [
  {name:'遗忘庭院',en:'THE FORGOTTEN COURTYARD',title:'寂静之中，拔剑。',story:'月光穿过破碎的穹顶。守卫仍在等待一个永远不会归来的人。',color:'#80cbbd'},

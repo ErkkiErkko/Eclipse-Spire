@@ -35,6 +35,7 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 - app/page.tsx：交互、回合节奏、存档、战斗画面。
 - app/globals.css：界面、动画与响应式布局。
 - lib/game-data.ts：卡牌、遗物、敌人行动与中文规则。
+- lib/character-art.ts：主角、每种敌人及卡牌的独立立绘映射。
 - lib/game-engine.ts：使用种子随机数的纯游戏状态机。
 - components/game-scenes.tsx：冒险场景和结局。
 - components/game-ui.tsx：卡牌、图标、血条、路线地图。
@@ -46,15 +47,17 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 
 ## 美术
 
-三张原创资产均由内置 imagegen 生成，再根据用户反馈改为简洁二维动画风格：
-清晰轮廓、赛璐璐色块、较少的服饰装饰与场景纹理。角色保持 PNG 透明通道。
+角色采用可爱的二维动漫女生风格：圆润脸型、明亮眼睛、腮红与各具性格的表情。
+主角和全部 12 种敌人分别绘制，发型、服装轮廓、武器、姿态与配色各不相同。
+每张角色图均由内置 imagegen 生成，保留真实透明通道，并无损编码为 WebP。
 
-- public/assets/hero.png：银发、青眼的成年剑姬莉雅，黑白战裙、青色长剑，朝右。
-- public/assets/enemy.png：紫发堕落女骑士，深色铠甲、弯月长柄武器，朝左。
+- public/assets/characters/hero-cute.webp：银发青眼的月咏·莉雅、青色蝴蝶结与月刃。
+- public/assets/characters/：守卫、歌姬、使徒、剑姬、先知、女爵、天使、魔女、处刑者和三位首领，共 12 张独立敌人立绘。
 - public/assets/courtyard.png：巨大月亮与高塔下的废弃哥特圣堂、宽阔战斗地面。
 
-未使用原游戏的美术、音频、角色或卡牌文本。敌方单位共用骑士立绘，
-并以名字、色调、生命和行动模式区分。完整最终编辑提示词见 ART-PROMPTS.md。
+战斗、卡牌、事件与结局均使用这套角色图。图片按现有角色 ID 读取，旧存档可直接继续。
+完整角色设定见 CHARACTER-ROSTER.md，新立绘提示词见 CHARACTER-ART-PROMPTS.md，
+背景和早期版本提示词见 ART-PROMPTS.md。未使用原游戏的美术、音频、角色或卡牌文本。
 
 ## 验证
 

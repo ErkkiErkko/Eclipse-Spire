@@ -1,4 +1,7 @@
-# Final asset prompts
+# Background and previous character asset prompts
+
+The current 13 cute character portraits are documented in CHARACTER-ART-PROMPTS.md.
+The courtyard prompt below remains current; hero.png and enemy.png describe the previous character set.
 
 Tool: built-in imagegen. Output files are project-local under public/assets.
 The style was revised following the user's request for simpler animation-style artwork.
