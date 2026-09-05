@@ -5,7 +5,7 @@
 
 ## 月咏·莉雅 · hero-cute
 
-[hero-cute.webp](public/assets/characters/hero-cute.webp)
+[hero-cute-v2.webp](public/assets/characters/hero-cute-v2.webp)
 
 ### 绘制提示词
 
@@ -21,9 +21,25 @@ Background: genuinely transparent PNG with actual RGBA alpha channel; all backgr
 
 Remove the background from this heroine illustration. Make a transparent background. Keep the heroine exactly unchanged, including all hair, katana and boots.
 
+### 统一为第二轮角色风格
+
+风格参考：[镜月魔女](public/assets/characters/witch.webp)、[无名处刑者](public/assets/characters/elite.webp)。
+
+Use case: style-transfer. Asset type: transparent full-body fantasy card-game heroine sprite, portrait 1024x1536.
+Input images: Image 1 is the silver-haired heroine EDIT TARGET and identity reference. Images 2 (cute purple witch) and 3 (cute red-hood axe fighter) are STYLE REFERENCES ONLY. Closely match their cute cartoon proportions, face shape and bold clean drawing. Never copy the references' hats, clothes or weapons.
+Primary request: Decisively REDRAW the heroine in the same cute stylized anime game style as images 2 and 3: oversized rounded head, tiny nose and mouth, big bright teal eyes, rosy cheeks, short torso and short legs, approximately 3.5 to 4 heads tall. Use thick clean dark outlines, broad flat color shapes, ONE hard-edged cel shadow per surface, chunky simplified hair locks. Her expression is friendly, lively and bravely cheerful.
+Preserve her heroine identity: silver-white hair half up with a side braid and teal ribbon; ivory and teal cape and modest opaque tunic dress, opaque dark tights, boots; cyan katana. Simplify costume into clear broad shapes and minimal gold accents. She is a nonsexual adult fantasy woman represented in cute cartoon proportions.
+Composition: Face AND body facing RIGHT, with her gaze toward screen-right. Confident playful battle-ready stance. Whole body, hair, both boots and entire cyan katana inside the frame; generous empty transparent margin of about 5 percent on all sides. Sprite sits centered, sword held pointing diagonally down toward the right without cropping.
+Scene/backdrop: genuinely transparent PNG background with real alpha, including transparent space between her limbs, cape and sword. No floor, no ground shadow, no aura or glow, no checkerboard or painted background.
+Avoid: tall long-legged realistic proportions, realistic anatomy rendering, slender elongated face, tiny intricate strands, embroidery, elaborate gold decoration, smooth gradients, soft painterly lighting, blur, text, logo, watermark. Match the reference images' cute bold cartoon rendering while retaining only the heroine's own design.
+
+### 本次后续编辑 1
+
+Remove the background of this image. Make a transparent background.
+
 ## 荆棘守卫 · sentinel
 
-[sentinel.webp](public/assets/characters/sentinel.webp)
+[sentinel-v2.webp](public/assets/characters/sentinel-v2.webp)
 
 ### 绘制提示词
 
@@ -34,9 +50,27 @@ Style/medium: very cute appealing hand-drawn 2D anime JRPG adult fantasy woman, 
 Composition: single full body character, portrait 1024x1536. Comparable size for a game roster, tallest point at 5-8% of imageheight, feet at 90-94%, generous 5-8% safe margin around all uncut hair, feet, and entire weapon. 
 Background: genuinely transparent PNG with actual RGBA alpha channel; all background fully alpha=0. No floor, no ground shadow, no backdrop, no painted checkerboard, no text or watermark. Opaque character body and clothes.
 
+### 统一为第二轮角色风格
+
+风格参考：[镜月魔女](public/assets/characters/witch.webp)、[无名处刑者](public/assets/characters/elite.webp)。
+
+Use case: style-transfer.
+Asset type: full-body enemy sprite for a cute anime fantasy game.
+Input images: Image 1 is the EDIT TARGET (sentinel); Image 2 (witch) and Image 3 (elite) are STYLE REFERENCES ONLY. Redraw Image 1 decisively to match Image 2 and Image 3 as though made by the same cartoon artist for the same set.
+Primary request: strong STYLE AND PROPORTION REDRAW, not a light cleanup. The target must become clearly much cuter: oversized rounded head, large bright simple eyes with white glints, tiny nose and mouth, round cheeks with visible rosy blush, short torso and short legs, approx 3.5–4 heads tall, compact cute anime game proportions. A nonsexual adult fantasy woman with a modest opaque costume.
+Character identity and pose: Sentinel: retain chestnut twin hair buns with short braids, amber eyes, green hood and cape, cream tunic and brown boots, leaf shield in her forward protective arm on image-right, thorn short sword extended toward image-left. Preserve the spread-legged protective stance turned toward image-left, shy protective expression. Use a modest opaque tunic to above the knee, simple sturdy boots and leggings; simplify leaves and remove ornamental embroidery.
+Style/medium: bold clean dark outlines, broad flat color regions, ONE hard-edged cel shadow per region, simple clumped hair, no individual strands, no painterly or soft rendering. Match the rounded expressive facial construction and compact silhouette of the style references. Preserve target's identity, palette, hairstyle category, iconic gear, left-facing pose and personality. Do not copy witch costume, hat, broom or mirror, and do not copy elite axe or red hood.
+Composition: one separate character, complete full body including all feet and all props, portrait 1024x1536 PNG, clean empty safety margin about 5% on all sides. Nothing cut off.
+Background: genuinely transparent PNG alpha background, empty alpha-zero space around silhouette and between limbs, like reference assets. No painted checkerboard, no opaque background, no scene, floor, ground shadow, glow, halo, haze, gradient, text or watermark.
+Avoid: realistic long legs, small head, mature glamorous anatomy, cleavage, soft airbrush shading, detailed embroidery, ornate metalwork, tiny decorative filigree.
+
+### 本次后续编辑 1
+
+Remove the background of this image. Make a transparent background.
+
 ## 失声歌姬 · wraith
 
-[wraith.webp](public/assets/characters/wraith.webp)
+[wraith-v2.webp](public/assets/characters/wraith-v2.webp)
 
 ### 绘制提示词
 
@@ -47,9 +81,31 @@ Style/medium: very cute appealing hand-drawn 2D anime JRPG adult fantasy woman, 
 Composition: single full body character, portrait 1024x1536. Comparable size for a game roster, tallest point at 5-8% of imageheight, feet at 90-94%, generous 5-8% safe margin around all uncut hair, feet, and entire weapon. 
 Background: genuinely transparent PNG with actual RGBA alpha channel; all background fully alpha=0. No floor, no ground shadow, no backdrop, no painted checkerboard, no text or watermark. Opaque character body and clothes.
 
+### 统一为第二轮角色风格
+
+风格参考：[镜月魔女](public/assets/characters/witch.webp)、[无名处刑者](public/assets/characters/elite.webp)。
+
+Use case: style-transfer.
+Asset type: full-body enemy sprite for a cute anime fantasy game.
+Input images: Image 1 is the EDIT TARGET (wraith); Image 2 (witch) and Image 3 (elite) are STYLE REFERENCES ONLY. Redraw Image 1 decisively to match Image 2 and Image 3 as though made by the same cartoon artist for the same set.
+Primary request: strong STYLE AND PROPORTION REDRAW, not a light cleanup. The target must become clearly much cuter: oversized rounded head, large bright simple eyes with white glints, tiny nose and mouth, round cheeks with visible rosy blush, short torso and short legs, approx 3.5–4 heads tall, compact cute anime game proportions. A nonsexual adult fantasy woman with a modest opaque costume.
+Character identity and pose: Wraith: retain aqua wavy bob, blue eyes, white and blue stage dress, white gloves, bell microphone on a long elegant stand held toward image-left, and two flowing blue ribbons trailing toward image-right. Preserve the sweet gentle singer gesture with free gloved hand near her chest and crossed feet, turned toward image-left. Modest opaque high-neck dress with puff sleeves, simple broad skirt folds, opaque tights and short boots; simplify ruffles and jewels.
+Style/medium: bold clean dark outlines, broad flat color regions, ONE hard-edged cel shadow per region, simple clumped hair, no individual strands, no painterly or soft rendering. Match the rounded expressive facial construction and compact silhouette of the style references. Preserve target's identity, palette, hairstyle category, iconic gear, left-facing pose and personality. Do not copy witch costume, hat, broom or mirror, and do not copy elite axe or red hood.
+Composition: one separate character, complete full body including all feet and all props, portrait 1024x1536 PNG, clean empty safety margin about 5% on all sides. Nothing cut off.
+Background: genuinely transparent PNG alpha background, empty alpha-zero space around silhouette and between limbs, like reference assets. No painted checkerboard, no opaque background, no scene, floor, ground shadow, glow, halo, haze, gradient, text or watermark.
+Avoid: realistic long legs, small head, mature glamorous anatomy, cleavage, soft airbrush shading, detailed embroidery, ornate metalwork, tiny decorative filigree.
+
+### 本次后续编辑 1
+
+Remove the background of this image. Make a transparent background.
+
+### 本次后续编辑 2
+
+Remove every remaining background pixel and background haze from this character. Make the entire background completely transparent, including all four corners and edges. Preserve the character, ribbons, microphone and all character pixels unchanged.
+
 ## 黑羽使徒 · raven
 
-[raven.webp](public/assets/characters/raven.webp)
+[raven-v2.webp](public/assets/characters/raven-v2.webp)
 
 ### 绘制提示词
 
@@ -60,9 +116,27 @@ Style/medium: very cute appealing hand-drawn 2D anime JRPG adult fantasy woman, 
 Composition: single full body character, portrait 1024x1536. Comparable size for a game roster, tallest point at 5-8% of imageheight, feet at 90-94%, generous 5-8% safe margin around all uncut hair, feet, and entire weapon. 
 Background: genuinely transparent PNG with actual RGBA alpha channel; all background fully alpha=0. No floor, no ground shadow, no backdrop, no painted checkerboard, no text or watermark. Opaque character body and clothes.
 
+### 统一为第二轮角色风格
+
+风格参考：[镜月魔女](public/assets/characters/witch.webp)、[无名处刑者](public/assets/characters/elite.webp)。
+
+Use case: style-transfer.
+Asset type: full-body enemy sprite for a cute anime fantasy game.
+Input images: Image 1 is the EDIT TARGET (raven); Image 2 (witch) and Image 3 (elite) are STYLE REFERENCES ONLY. Redraw Image 1 decisively to match Image 2 and Image 3 as though made by the same cartoon artist for the same set.
+Primary request: strong STYLE AND PROPORTION REDRAW, not a light cleanup. The target must become clearly much cuter: oversized rounded head, large bright simple eyes with white glints, tiny nose and mouth, round cheeks with visible rosy blush, short torso and short legs, approx 3.5–4 heads tall, compact cute anime game proportions. A nonsexual adult fantasy woman with a modest opaque costume.
+Character identity and pose: Raven: retain navy bob hair, golden eyes, feather beret, black-and-white feather cape, dark shorts over opaque tights, white blouse, dark vest and boots, and crow-headed wand held at image-left. Preserve the playful crossed-leg pose with a gloved finger near her mouth, looking toward image-left. Cute mischievous smile. Modest opaque blouse and vest fully cover torso, no bare midriff. Simplify cape feathers into broad layered shapes and remove fine chains/filigree.
+Style/medium: bold clean dark outlines, broad flat color regions, ONE hard-edged cel shadow per region, simple clumped hair, no individual strands, no painterly or soft rendering. Match the rounded expressive facial construction and compact silhouette of the style references. Preserve target's identity, palette, hairstyle category, iconic gear, left-facing pose and personality. Do not copy witch costume, hat, broom or mirror, and do not copy elite axe or red hood.
+Composition: one separate character, complete full body including all feet and all props, portrait 1024x1536 PNG, clean empty safety margin about 5% on all sides. Nothing cut off.
+Background: genuinely transparent PNG alpha background, empty alpha-zero space around silhouette and between limbs, like reference assets. No painted checkerboard, no opaque background, no scene, floor, ground shadow, glow, halo, haze, gradient, text or watermark.
+Avoid: realistic long legs, small head, mature glamorous anatomy, cleavage, soft airbrush shading, detailed embroidery, ornate metalwork, tiny decorative filigree.
+
+### 本次后续编辑 1
+
+Remove the background of this image. Make a transparent background.
+
 ## 蔷薇剑姬 · duelist
 
-[duelist.webp](public/assets/characters/duelist.webp)
+[duelist-v2.webp](public/assets/characters/duelist-v2.webp)
 
 ### 绘制提示词
 
@@ -73,9 +147,26 @@ Style/medium: very cute appealing hand-drawn 2D anime JRPG adult fantasy woman, 
 Composition: single full body character, portrait 1024x1536. Comparable size for a game roster, tallest point at 5-8% of imageheight, feet at 90-94%, generous 5-8% safe margin around all uncut hair, feet, and entire weapon. 
 Background: genuinely transparent PNG with actual RGBA alpha channel; all background fully alpha=0. No floor, no ground shadow, no backdrop, no painted checkerboard, no text or watermark. Opaque character body and clothes.
 
+### 统一为第二轮角色风格
+
+风格参考：[镜月魔女](public/assets/characters/witch.webp)、[无名处刑者](public/assets/characters/elite.webp)。
+
+Use case: style-transfer. Asset type: full-body enemy sprite for anime fantasy card game.
+Input images: Image 1 is the character EDIT TARGET, source of identity, palette, gear, and distinct LEFT-facing pose. Image 2 (witch) and Image 3 (elite) are the SAME STYLE REFERENCES for this batch; copy their cute stylized proportions, face design, linework and cel-color economy ONLY. Do not copy their costume, hair, hat or weapons.
+Primary request: Decisive full STYLE + PROPORTION REDRAW of image 1 to match the witch and elite. Give the adult character an oversized rounded head, very short torso and legs, approximately 3.5–4 heads tall from crown to soles, rounded cheeks with blush, tiny nose and mouth. Cute nonsexual adult fantasy woman in a modest opaque outfit. Broad flat-color areas, bold clean dark outlines and just ONE hard-edged cel shadow per material. Simple chunky hair locks with very few interior strokes. Simplify every costume decoration and fold. The final drawing must immediately belong to the same cute cartoon roster as image 2 and 3.
+Scene/backdrop: Genuine transparent PNG alpha background. No painted checkerboard, backdrop, floor, shadow on ground, aura, glow or border.
+Composition/framing: ONE separate full body character, portrait 1024x1536. Face and action angle LEFT as in image 1. All hair, props, weapon tips, feet inside canvas with about 5% empty margin on all sides.
+Avoid: tall realistic anatomy, long legs, tiny head, mature realistic facial proportions, pinup posing, exposed cleavage or thighs, sensual clothing, detailed embroidery, filigree, many hair strands, soft airbrush shading, gradients, photorealism, multiple characters, text, watermark.
+
+Identity invariants: Coral-pink curly twin tails with chunky loose curls and red rose bows, huge bright GREEN eyes, proud playful closed-mouth smile. Red and cream rose-themed dress, modest high cream front and sleeves, simple gold trim, opaque cream tights and short red boots. Rose bows remain recognizable but simplified. Preserve her dynamic fencing pose with forward arm extended LEFT, rapier pointed upper LEFT and the other hand extended back. Make the curved rapier hilt simple gold, retaining the thin straight silver blade. Keep whole blade inside with margins. Reduce torso and legs substantially; enlarge round face decisively.
+
+### 本次后续编辑 1
+
+Remove the background of this image. Make a transparent background.
+
 ## 盲眼先知 · oracle
 
-[oracle.webp](public/assets/characters/oracle.webp)
+[oracle-v2.webp](public/assets/characters/oracle-v2.webp)
 
 ### 绘制提示词
 
@@ -86,13 +177,47 @@ Style/medium: very cute appealing hand-drawn 2D anime JRPG adult fantasy woman, 
 Composition: single full body character, portrait 1024x1536. Comparable size for a game roster, tallest point at 5-8% of imageheight, feet at 90-94%, generous 5-8% safe margin around all uncut hair, feet, and entire weapon. 
 Background: genuinely transparent PNG with actual RGBA alpha channel; all background fully alpha=0. No floor, no ground shadow, no backdrop, no painted checkerboard, no text or watermark. Opaque character body and clothes.
 
+### 统一为第二轮角色风格
+
+风格参考：[镜月魔女](public/assets/characters/witch.webp)、[无名处刑者](public/assets/characters/elite.webp)。
+
+Use case: style-transfer. Asset type: full-body enemy sprite for anime fantasy card game.
+Input images: Image 1 is the character EDIT TARGET, source of identity, palette, gear, and distinct LEFT-facing pose. Image 2 (witch) and Image 3 (elite) are the SAME STYLE REFERENCES for this batch; copy their cute stylized proportions, face design, linework and cel-color economy ONLY. Do not copy their costume, hair, hat or weapons.
+Primary request: Decisive full STYLE + PROPORTION REDRAW of image 1 to match the witch and elite. Give the adult character an oversized rounded head, very short torso and legs, approximately 3.5–4 heads tall from crown to soles, rounded cheeks with blush, tiny nose and mouth. Cute nonsexual adult fantasy woman in a modest opaque outfit. Broad flat-color areas, bold clean dark outlines and just ONE hard-edged cel shadow per material. Simple chunky hair locks with very few interior strokes. Simplify every costume decoration and fold. The final drawing must immediately belong to the same cute cartoon roster as image 2 and 3.
+Scene/backdrop: Genuine transparent PNG alpha background. No painted checkerboard, backdrop, floor, shadow on ground, aura, glow or border.
+Composition/framing: ONE separate full body character, portrait 1024x1536. Face and action angle LEFT as in image 1. All hair, props, weapon tips, feet inside canvas with about 5% empty margin on all sides.
+Avoid: tall realistic anatomy, long legs, tiny head, mature realistic facial proportions, pinup posing, exposed cleavage or thighs, sensual clothing, detailed embroidery, filigree, many hair strands, soft airbrush shading, gradients, photorealism, multiple characters, text, watermark.
+
+Identity invariants: Mint-green long flowing hair in a few broad locks, cream bow at back, cream STAR BLINDFOLD covering both eyes completely, NO visible eyes. Round cheerful blushing face with small smiling mouth. Lavender and cream WIDE-SLEEVE FULL ROBE with simple gold star motifs, modest closed front reaching ankles; no slit, cleavage, exposed shoulders or thighs. Small visible cream shoes. Preserve serene LEFT-facing three-quarter pose with both hands cupped up in front toward the LEFT, holding a FLOATING faceted lavender/blue star crystal above palms. The crystal has solid flat-color facets, no external glow or aura. Simplify hanging ornaments to a few bold stars. Much shorter body and oversized rounded head in same proportions as references.
+
+### 本次后续编辑 1
+
+Remove the background of this image. Make a transparent background.
+
 ## 收魂女爵 · reaper
 
-[reaper.webp](public/assets/characters/reaper.webp)
+[reaper-v2.webp](public/assets/characters/reaper-v2.webp)
 
 ### 绘制提示词
 
 Create a transparent anime game character sprite: 收魂女爵, a very cute adult fantasy woman with lavender side ponytail, large violet eyes, soft rounded face and rosy cheeks, tiny tilted black top hat, plum-and-black doll-like gothic dress with white collar, opaque stockings, rounded crescent scythe, bashful smile. Single full-body figure facing LEFT, generous uncut margin. Hand-drawn 2D anime JRPG, simple clean dark contour linework, flat colors, only one or two hard-edge cel shadows. Slightly oversized cute head, roughly 4.5-head stylized proportions, not baby chibi. Very simple costume: no embroidery, no rendered textures, no shiny materials, no detailed lace, no ornate filigree. Cute and dignified, nonsexual, no skulls or horror. Portrait 1024x1536, full figure from tilted hat at 6% imageheight to boots at 93%, entire scythe inside safe margins. Isolated character with a transparent background.
+
+### 统一为第二轮角色风格
+
+风格参考：[镜月魔女](public/assets/characters/witch.webp)、[无名处刑者](public/assets/characters/elite.webp)。
+
+Use case: style-transfer. Asset type: full-body enemy sprite for anime fantasy card game.
+Input images: Image 1 is the character EDIT TARGET, source of identity, palette, gear, and distinct LEFT-facing pose. Image 2 (witch) and Image 3 (elite) are the SAME STYLE REFERENCES for this batch; copy their cute stylized proportions, face design, linework and cel-color economy ONLY. Do not copy their costume, hair, hat or weapons.
+Primary request: Decisive full STYLE + PROPORTION REDRAW of image 1 to match the witch and elite. Give the adult character an oversized rounded head, very short torso and legs, approximately 3.5–4 heads tall from crown to soles, rounded cheeks with blush, tiny nose and mouth. Cute nonsexual adult fantasy woman in a modest opaque outfit. Broad flat-color areas, bold clean dark outlines and just ONE hard-edged cel shadow per material. Simple chunky hair locks with very few interior strokes. Simplify every costume decoration and fold. The final drawing must immediately belong to the same cute cartoon roster as image 2 and 3.
+Scene/backdrop: Genuine transparent PNG alpha background. No painted checkerboard, backdrop, floor, shadow on ground, aura, glow or border.
+Composition/framing: ONE separate full body character, portrait 1024x1536. Face and action angle LEFT as in image 1. All hair, props, weapon tips, feet inside canvas with about 5% empty margin on all sides.
+Avoid: tall realistic anatomy, long legs, tiny head, mature realistic facial proportions, pinup posing, exposed cleavage or thighs, sensual clothing, detailed embroidery, filigree, many hair strands, soft airbrush shading, gradients, photorealism, multiple characters, text, watermark.
+
+Identity invariants: Light-lavender SIDE PONYTAIL in a few large sweeping curls, little black top hat with plum bow, huge bright violet eyes and a bashful cute smile with rosy cheeks. Modest opaque plum-and-black doll dress with puffed sleeves, high cream bib, simple gold buttons, plum bows, opaque dark tights and short black boots. Preserve LEFT-facing three-quarter pose, one gloved hand near chin and other hand holding long scythe diagonally. Crescent scythe remains recognizable: black shaft, simplified gold crescent near purple jewel, single clean long lavender crescent blade curving on the RIGHT side of character. Keep full scythe blade and shaft in frame. Draw a much larger rounded head, very short torso and legs, like the witch and elite references.
+
+### 本次后续编辑 1
+
+Remove the background of this image. Make a transparent background.
 
 ## 折翼天使 · seraph
 

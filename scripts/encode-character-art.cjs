@@ -6,8 +6,9 @@ const roster = ['hero-cute', 'sentinel', 'wraith', 'raven', 'duelist', 'oracle',
   'reaper', 'seraph', 'witch', 'elite', 'boss0', 'boss1', 'boss2'];
 
 async function main() {
-  const [manifestPath, sharpPath] = process.argv.slice(2);
-  if (!manifestPath || !sharpPath) throw new Error('Usage: node encode-character-art.cjs MANIFEST SHARP_MODULE_PATH');
+  const [manifestPath, sharpPath, revision = ''] = process.argv.slice(2);
+  if (!manifestPath || !sharpPath) throw new Error('Usage: node encode-character-art.cjs MANIFEST SHARP_MODULE_PATH [REVISION]');
+  if (revision && !/^[a-z0-9-]+$/.test(revision)) throw new Error('Invalid asset revision');
   const sharp = createRequire(__filename)(path.resolve(sharpPath));
   const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
   const entries = Array.isArray(manifest) ? manifest : manifest.assets;
@@ -31,7 +32,7 @@ async function main() {
     if (cornerAlpha.some(a => a > 1) || transparent / pixels < .1 || visible / pixels < .15)
       throw new Error(entry.id + ': transparency or silhouette is invalid: ' + JSON.stringify({cornerAlpha,
         transparentPercent:100 * transparent / pixels, visiblePercent:100 * visible / pixels}));
-    const output = path.join(destination, entry.id + '.webp');
+    const output = path.join(destination, entry.id + (revision ? '-' + revision : '') + '.webp');
     await sharp(entry.path).webp({lossless: true, effort: 6}).toFile(output);
     const outputInfo = await sharp(output).metadata();
     if (outputInfo.width !== info.width || outputInfo.height !== info.height || !outputInfo.hasAlpha)
