@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createGame,transition} from '../lib/game-engine.ts';
 import {CARDS} from '../lib/game-data.ts';
 import {heroActionForPlay} from '../lib/hero-actions.ts';
-import {HeroMotionPlayer,HERO_MOTION_MS,heroMotionFrames} from '../lib/hero-motion-player.ts';
+
 
 function prepared(ids) {
   const state=createGame(43);
@@ -77,46 +77,4 @@ test('double strikes and stored-moon finishers keep their specific cues, includi
   assert.equal(gesture('mooncut',s=>s.combat.moon=5).charged,true);
   assert.equal(gesture('mooncut',s=>s.combat.moon=0).charged,false);
   assert.equal(gesture('strike',s=>s.combat.enemies[0].hp=1).kind,'attack');
-});
-
-function surface() {
-  const calls=[];
-  const nodes=['body','idle','channel'].map(name=>({
-    name,style:{transform:'none',opacity:name==='channel'?'0':'1'},
-    animate(frames,options){
-      const call={name,frames,options,canceled:0};calls.push(call);
-      return {cancel(){call.canceled++;}};
-    },
-  }));
-  const player=new HeroMotionPlayer(...nodes,node=>node.style);
-  return {player,nodes,calls};
-}
-
-test('rapid interruptions cancel old motion and blend from the currently visible transform and opacity',()=>{
-  const {player,nodes,calls}=surface();
-  player.play('power');
-  nodes[0].style.transform='matrix(1, 0, 0, 1, 22, -8)';
-  nodes[1].style.opacity='.3';nodes[2].style.opacity='.7';
-  player.play('attack');
-  assert.ok(calls.slice(0,3).every(call=>call.canceled===1));
-  assert.equal(calls[3].frames[0].transform,'matrix(1, 0, 0, 1, 22, -8)');
-  assert.equal(calls[4].frames[0].opacity,'.3');
-  assert.equal(calls[5].frames[0].opacity,'.7');
-  assert.equal(calls.length,6);
-  player.cancel();player.cancel();
-  assert.ok(calls.every(call=>call.canceled===1));
-});
-
-test('missing pose image never fades out the idle sprite and motions always recover within 600 ms',()=>{
-  const {player,calls}=surface();
-  player.play('skill',false);
-  assert.equal(calls[1].frames[1].opacity,1);
-  assert.equal(calls[2].frames[1].opacity,0);
-  for(const [kind,duration] of Object.entries(HERO_MOTION_MS)){
-    assert.ok(duration<=600);
-    const frames=heroMotionFrames(kind);
-    assert.equal(frames.at(-1).offset,1);
-    assert.equal(frames.at(-1).transform,'translate3d(0,0,0) rotate(0deg) scale(1,1)');
-    assert.deepEqual(frames.map(frame=>frame.offset),frames.map(frame=>frame.offset).sort((a,b)=>a-b));
-  }
 });

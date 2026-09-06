@@ -5,6 +5,7 @@ import {Heart, Layers, Moon, Sparkles, Swords} from 'lucide-react';
 import {HERO_ART} from '@/lib/character-art';
 import type {HeroAction} from '@/lib/hero-actions';
 import {HERO_MOTION_MS, HeroMotionPlayer} from '@/lib/hero-motion-player';
+import {createHeroRenderer} from '@/lib/hero-motion-canvas';
 
 function ActionVfx({action}: {action: HeroAction}) {
   const Sigil = action.cue === 'draw' ? Layers : action.cue === 'heal' ? Heart
@@ -35,12 +36,22 @@ function ActionVfx({action}: {action: HeroAction}) {
 }
 
 export function HeroMotion({action, impact, enabled, children}: {action: HeroAction | null; impact: number | null; enabled: boolean; children: ReactNode}) {
-  const body = useRef<HTMLDivElement>(null), idle = useRef<HTMLImageElement>(null), channel = useRef<HTMLImageElement>(null);
+  const canvas = useRef<HTMLCanvasElement>(null);
   const player = useRef<HeroMotionPlayer | null>(null);
   const lastAction = useRef<number | null>(null), lastImpact = useRef<number | null>(null);
   useLayoutEffect(() => {
-    if (!body.current || !idle.current || !channel.current || typeof body.current.animate !== 'function') return;
-    player.current ??= new HeroMotionPlayer(body.current, idle.current, channel.current, node => getComputedStyle(node as Element));
+    if (!canvas.current) return;
+    const drawing = createHeroRenderer(canvas.current);
+    if (!drawing) return;
+    player.current = new HeroMotionPlayer(drawing.renderer, {
+      now: () => performance.now(),
+      request: callback => requestAnimationFrame(callback),
+      cancel: id => cancelAnimationFrame(id),
+    });
+    return () => { player.current?.cancel(); player.current = null; drawing.dispose(); };
+  }, []);
+  useLayoutEffect(() => {
+    if (!player.current) return;
     if (!enabled) {
       player.current.cancel(); lastAction.current = action?.serial ?? null; lastImpact.current = impact; return;
     }
@@ -49,16 +60,15 @@ export function HeroMotion({action, impact, enabled, children}: {action: HeroAct
     }
     if (action && action.serial !== lastAction.current) {
       lastAction.current = action.serial;
-      player.current.play(action.kind, channel.current.complete && channel.current.naturalWidth > 0);
+      player.current.play(action.kind);
     } else if (!action) {
       lastAction.current = null; player.current.cancel();
     }
   }, [action, impact, enabled]);
-  useLayoutEffect(() => () => player.current?.cancel(), []);
   return <div className="fighter-art hero-motion-stage">
-    <div className="hero-breath"><div className="hero-motion-body" ref={body} role="img" aria-label={HERO_ART.alt}>
-      <img className="hero-motion-sprite hero-idle-pose" ref={idle} src={HERO_ART.src} alt="" aria-hidden="true" decoding="async" draggable={false}/>
-      <img className="hero-motion-sprite hero-channel-pose" ref={channel} src="/assets/characters/hero-channel.webp" alt="" aria-hidden="true" decoding="async" draggable={false}/>
+    <div className="hero-breath"><div className="hero-motion-body" role="img" aria-label={HERO_ART.alt}>
+      <canvas className="hero-cel-canvas" ref={canvas} width={1152} height={1536} aria-hidden="true"/>
+      <img className="hero-motion-sprite hero-idle-fallback" src={HERO_ART.src} alt="" aria-hidden="true" decoding="async" draggable={false}/>
     </div></div>
     {enabled && action && <ActionVfx key={action.serial} action={action}/>}
     {children}
