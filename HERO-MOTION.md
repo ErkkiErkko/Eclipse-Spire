@@ -17,7 +17,7 @@
 
 ## 施法姿势
 
-使用内置 imagegen，以当前莉雅立绘作为严格角色与画风参考。选定 PNG 为 1024 × 1536、真实 RGBA，保留原生尺寸和透明通道并无损编码为 [hero-channel.webp](public/assets/characters/hero-channel.webp)，没有裁切、缩放或手工改画。
+使用内置 imagegen，以当前莉雅立绘作为严格角色与画风参考。选定 PNG 为 1024 × 1536、真实 RGBA，保留原生尺寸，以 WebP 质量 92、透明度质量 100 编码为 [hero-channel.webp](public/assets/characters/hero-channel.webp)，没有裁切、缩放或手工改画。
 
 原始图片：`C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-motion/channel.png`
 
