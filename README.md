@@ -50,6 +50,7 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 - lib/game-audio.ts：Web Audio 音效与音乐。
 - lib/game-tools.ts：渐进增强的 WebMCP 战斗接口。
 - public/assets：原创动画风格图片。
+- art-history/characters：已停用的七张早期立绘，保留原文件供回顾，不进入网页发布包。
 - tests/game-engine.test.mjs：21 项游戏规则回归测试。
 - tests/hero-actions.test.mjs：8 项动作分类、无效出牌、连续动作与取消清理测试。
 
