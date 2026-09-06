@@ -6,10 +6,12 @@ import { Progress } from '@/components/ui/progress';
 import { CARDS, CHAPTERS, FOES, NODE_LABELS } from '@/lib/game-data';
 import { reachable } from '@/lib/game-engine';
 import { CARD_ART } from '@/lib/card-art';
+import { RELIC_ART } from '@/lib/relic-art';
 import type { GameState, MapNode, OwnedCard } from '@/lib/game-engine';
 
 const icons={moon:Moon,swords:Swords,shield:Shield,sparkles:Sparkles,wind:Wind,feather:Feather,star:Star,zap:Zap,heart:Heart,flower:Flower2,eye:Eye,eclipse:Eclipse,waves:Waves,skull:Skull,gem:Gem,bell:Bell,sun:Sun,compass:Compass,hourglass:Hourglass,crown:Crown,combat:Swords,elite:Skull,camp:Flame,shop:ShoppingBag,event:HelpCircle,chest:Gift,boss:Crown};
 export function Rune({name,size=20,...rest}:{name:string;size?:number;className?:string}){const Icon=icons[name as keyof typeof icons]??Sparkles;return <Icon size={size} strokeWidth={1.5} {...rest}/>;}
+export function RelicIcon({id,size=40}:{id:string;size?:number}){const art=RELIC_ART[id];return <img className="relic-art" src={art.src} alt={art.alt} width={size} height={size} style={{'--relic-size':`${size}px`} as CSSProperties} decoding="async" draggable={false}/>;}
 export function Tip({title,text,children}:{title:string;text?:string;children:ReactNode}){return <Tooltip><TooltipTrigger className="tip-trigger" render={<span tabIndex={0}/>}>{children}</TooltipTrigger><TooltipContent className="game-tooltip"><strong>{title}</strong>{text&&<p>{text}</p>}</TooltipContent></Tooltip>;}
 export function CardView({owned,onClick,disabled=false,selected=false,index,handSize=5,compact=false,preview=false}:{owned:OwnedCard;onClick?:()=>void;disabled?:boolean;selected?:boolean;index?:number;handSize?:number;compact?:boolean;preview?:boolean}){
  const d=CARDS[owned.id];const art=CARD_ART[owned.id];const u=owned.up?1:0;const angle=index===undefined?0:(index-(handSize-1)/2)*Math.min(4,20/handSize);

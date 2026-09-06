@@ -37,6 +37,7 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 - lib/game-data.ts：卡牌、遗物、敌人行动与中文规则。
 - lib/character-art.ts：主角与每种敌人的独立立绘映射。
 - lib/card-art.ts：全部 26 种卡牌的独立插画路径和画面描述。
+- lib/relic-art.ts：全部 12 件遗物的独立贴图路径和外形描述。
 - lib/game-engine.ts：使用种子随机数的纯游戏状态机。
 - components/game-scenes.tsx：冒险场景和结局。
 - components/game-ui.tsx：卡牌、图标、血条、路线地图。
@@ -56,12 +57,15 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 - public/assets/characters/hero-cute-v2.webp：银发青眼的月咏·莉雅、青色蝴蝶结与月刃。
 - public/assets/characters/：守卫、歌姬、使徒、剑姬、先知、女爵、天使、魔女、处刑者和三位首领，共 12 张独立敌人立绘。
 - public/assets/cards/：26 幅独立卡图，以当前莉雅立绘为画风和角色参考，分别设计动作、道具与场景来表达牌名或效果。每幅为 1536 × 1024 不透明横幅，使用质量 92 的 WebP 编码加快加载，保留完整分辨率；本地无损原图保存在 outputs/card-art-originals/。
+- public/assets/relics/：12 件独立绘制的简约动画遗物，以月牙、羽毛、红心琥珀、铃铛、断剑、日光晶体、蔷薇、罗盘、沙漏、王冠、碎镜和丝线区分轮廓，保留真实透明通道并无损编码为 WebP。
 - public/assets/courtyard.png：巨大月亮与高塔下的废弃哥特圣堂、宽阔战斗地面。
 
 战斗、事件与结局使用角色立绘；手牌、牌库、奖励、商店及升级预览统一使用独立卡图。
 每个卡牌 ID 对应一幅专属插画，基础版和升级版共享该画面。图片不写入存档，旧存档可直接继续。
+遗物栏、战后奖励、商店、随行遗物详情与结局回顾使用同一套专属贴图，并保留名称和效果说明。
 完整角色设定见 CHARACTER-ROSTER.md，新立绘提示词见 CHARACTER-ART-PROMPTS.md，
 卡图设计与完整生成提示词见 CARD-ART-PROMPTS.md，背景和早期版本提示词见 ART-PROMPTS.md。
+遗物贴图设计、完整生成提示词与必要修正见 RELIC-ART-PROMPTS.md。
 未使用原游戏的美术、音频、角色或卡牌文本。
 
 ## 验证
