@@ -67,7 +67,7 @@ export function HeroMotion({action, impact, enabled, children}: {action: HeroAct
   }, [action, impact, enabled]);
   return <div className="fighter-art hero-motion-stage">
     <div className="hero-breath"><div className="hero-motion-body" role="img" aria-label={HERO_ART.alt}>
-      <canvas className="hero-cel-canvas" ref={canvas} width={1152} height={1536} aria-hidden="true"/>
+      <canvas className="hero-cel-canvas" ref={canvas} width={768} height={768} aria-hidden="true"/>
       <img className="hero-motion-sprite hero-idle-fallback" src={HERO_ART.src} alt="" aria-hidden="true" decoding="async" draggable={false}/>
     </div></div>
     {enabled && action && <ActionVfx key={action.serial} action={action}/>}

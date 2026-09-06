@@ -1,0 +1,265 @@
+{
+  "tool": "built-in image_gen.imagegen; no CLI or programmatic background removal; no generated-image pixel editing",
+  "destination": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/",
+  "request": "Four complete heroine animation source sheets; updated request16cels each,4columns by4rows.",
+  "alphaAndBoundsFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/alpha-and-bounds.json",
+  "boundsMeaning": "Exact connected-component bounds at alpha>=32, zero-based row-major Frame; bounds are not full-alpha crops. Preserve generous padding for faint pixels. The image tool did not retain equal square cells or requested high resolution consistently.",
+  "overallQA": "Native alpha verified on all four final source PNGs. Raw row-major animation sequences do not pass full motion/scale/loop QA. Complete cels may be selected and reordered for integration.",
+  "outputs": [
+    {
+      "action": "attack",
+      "path": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-alpha.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "frameCount": 16,
+      "usableCandidateFrames": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "ownerProposedTimeline": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        4,
+        2,
+        1,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        0
+      ],
+      "qa": [
+        "Complete integrated heroine anatomy and one-handed sword across cels; real overhead blade arc exists.",
+        "Frame3 raised blade tip is too close to/clipped by top; exclude.",
+        "Source frame6→7 jumps sharply; owner timeline reuses whole earlier cels through the arc.",
+        "Some scale/proportion/root drift remains; exact neutral loop not guaranteed if consuming raw order.",
+        "Native alpha has maximum254; background samples alpha0. Hidden RGB smoky backdrop is not displayed when composited with alpha."
+      ]
+    },
+    {
+      "action": "guard",
+      "path": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "frameCount": 16,
+      "ownerProposedTimeline": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        0
+      ],
+      "qa": [
+        "All16source figures have complete integrated bodies, weapons and visible boots.",
+        "Free palm in frames5–7 visually approaches blade; inspect actual composed player to ensure gesture reads as warding.",
+        "Late row scale/pose drift remains; first8 plus reversed recovery is preferable.",
+        "Body/head proportions visually closer to attack than power source."
+      ]
+    },
+    {
+      "action": "skill",
+      "path": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "frameCount": 16,
+      "qa": [
+        "All16source figures complete after layout repair.",
+        "One natural low sword grip maintained; free hand gathers toward chest then opens outward.",
+        "First neutral→gather and row transitions remain more abrupt than ideal evenly spaced in-betweens.",
+        "Native extraction enlarged/repositioned figures; use alpha component bounds.",
+        "Body/head proportions visually close to attack and guard, with small individual drawing variation."
+      ]
+    },
+    {
+      "action": "power",
+      "path": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/power-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "frameCount": 16,
+      "excludeFrames": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "qa": [
+        "Only first12are complete; final4lower legs/boots cropped and must be excluded.",
+        "Powerv2layout attempt is rejected because it copied attack poses from layout reference.",
+        "First-row and midrow chest gestures have little continuous head nod and an unexpected neutral frame4.",
+        "Power source appears slightly taller/slimmer through torso/thighs than attack; uniform scaling cannot correct proportion differences.",
+        "Owner proposes shipping a distinct chest-gathering timeline from complete skill cels0–3 plus game VFX instead of distorting power anatomy."
+      ]
+    }
+  ],
+  "history": [
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v1-raw.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-1d22d3d6-c645-439e-a705-77b7164842d9.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-prompt.txt",
+      "exactPrompt": "Use case: stylized-concept\nAsset type: production game character ANIMATION SPRITE SHEET, exactly 16 sequential complete-body cels in a regular 4 columns × 4 rows grid, read left to right then next row. Square canvas, highest natural resolution around 3072×3072 if supported. Invisible equal square cells, no drawn grid.\nInput images: Image 1 is the exact heroine identity, outfit, rendering style and sword design reference. Image 2 supplies the neutral full-body ready stance and grounded camera. Neither image is a detachable-parts template.\nPrimary request: Draw this same heroine performing ONE modest, anatomically natural diagonal katana slash and recovering. Make genuine closely spaced in-between animation drawings, not a collection of unrelated poses. Each of the 16 cells must contain a COMPLETE independent heroine with head, face, body, BOTH complete arms, BOTH hands attached to their wrists, BOTH complete legs and both boots, the whole cape and side braid, and the whole SAME curved single-edged cyan katana ALREADY HELD NATURALLY in her right hand. Do not separate any body parts or weapon.\nCharacter: cute chibi anime girl, white/lilac hair in a long side braid on viewer-left, high hair bundle, teal bow and yellow flower, large teal eyes, white and teal dress with gold edging, crescent-moon brooch, brown tights, white/teal/gold boots and short teal cape. Match the references' identity and approximately 3.5-head-tall proportions. Crisp dark linework and clean cel shading.\nSword: one curved single-edged cyan katana, pale cutting edge, black/teal wrapped hilt, one round gold guard, gold pommel. Her anatomical RIGHT hand is the hand on VIEWER-LEFT. Four curled fingers visibly enclose the hilt, with thumb on opposite/far side. Hilt passes through enclosed fist, guard directly beyond the hand, blade extending away from guard. Elbow and wrist obey anatomy and form a smooth forearm-to-hand line; rotate the entire hand WITH its hilt. Never mirror blade or flip grip. Free left hand remains visibly attached on viewer-right. Keep sword shape and length constant.\nFraming: fixed orthographic three-quarter frontal game camera, facing slightly viewer-right, identical scale and proportions in all cells. Every complete character and entire blade stays inside its own cell with at least 7% clear margins including overhead blade; character height around 68% of each cell, floor line exactly 90% down every cell. Both boots retain same planted footprint throughout; only tiny knee/torso adjustment. Consistent head center except tiny natural body tilt. No stepping, jumping, camera moves or zoom.\n16 FRAME CHOREOGRAPHY, row-major:\n1 neutral ready stance, katana held diagonally down to viewer-right across lower body, free hand relaxed.\n2 right elbow begins bending, hilt rises slightly.\n3 hilt rises another small step; forearm rotates naturally upward.\n4 bent elbow lifts hilt toward upper chest, blade tilts progressively upward.\n5 hilt reaches beside right shoulder (viewer-left), blade up-left, preparing diagonal cut.\n6 same windup a tiny increment farther, no flipped grip.\n7 begins smooth overhead-to-downright cut, blade closer to overhead.\n8 blade moves through upper-right in a short adjacent increment, bent elbow opening naturally.\n9 blade continues diagonally toward right, natural wrist follows forearm.\n10 blade lowers through mid-right, hilt moving down across the body; NO forward stabbing.\n11 blade reaches lower-right, close to starting diagonal ready direction.\n12 small follow-through, no exaggerated extension.\n13 elbow begins recovering down; entire hand and katana move as one.\n14 settle toward neutral.\n15 nearly identical to frame1.\n16 EXACT same neutral ready pose as frame1 for a seamless loop.\nBackground: genuinely transparent native RGBA alpha, empty between cels. No checkerboard drawn into pixels, no solid backdrop, no ground shadows or scenery.\nConstraints: complete integrated anatomy in EVERY cell is more important than big motion. Close adjacent frame continuity and constant scale. BOTH arms and hands always rendered; no armless torsos, no detached swords or separate hand pieces, no missing legs, no extra limbs/fingers/weapons, no duplicated face, no warped torso, no rubber body distortion, no perspective lunges, no blade crop, no frame overlap, no magic or slash streaks, no particles, no text, labels, cell numbers, grids or watermark.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/hero-cute-v2.webp",
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/motion/idle.webp"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v2-raw.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-77e245cb-e9d0-4569-9865-70e9f67c27f9.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-correction-prompt.txt",
+      "exactPrompt": "Use case: identity-preserve\nAsset type: corrected 16-cel complete-character animation sheet\nEdit target: image 1, the 4×4 attack sprite sheet. Image 2 is the source heroine identity reference.\nCorrect only the character motion continuity and sword-holding anatomy of this existing sheet while preserving its exact heroine, palette, rendering style, 4×4 layout and complete full-body figures.\nEvery cel still includes BOTH attached arms and hands, BOTH full legs and boots, complete cape, braid and the whole katana integrated in a natural one-handed RIGHT-hand grip. Her free LEFT hand on viewer-right must remain open and visibly separated from the sword in EVERY cel; it NEVER touches the sword. Gold circular guard is ALWAYS directly between right fist and cyan blade. The wrapped hilt always passes through four curled fingers; thumb opposite. One identical curved single-edged cyan blade and one hilt only. No blade mirroring, grip flipping or wrist twisting.\nIn the existing sheet row2 column3 (frame7) is wrong: it switches to a reversed blade and two-handed grip. Replace it with a gentle intermediate one-handed right-arm pose that connects frame6 to frame8 naturally. In fact reduce the amplitude of the whole attack to a modest elbow-led sword lift and diagonal-downright slash so all neighbors can be close. Do not put the sword behind her head or cross her wrists. Do not move the arm to the opposite side of her body.\nRow1: neutral down-right sword, followed by three tiny elbow-bending lifts.\nRow2: blade gradually tilts toward upright on viewer-right as right fist lifts only as high as upper chest; then begins a smooth short clockwise slash down toward viewer-right. All four frames are neighboring in-betweens. A smaller plausible motion is preferable to overhead acrobatics.\nRow3: four closely spaced phases continuing the same blade arc down toward lower-right, then beginning recovery. Sword moves in the picture plane, never stabbing toward camera.\nRow4: four closely spaced elbow-lowering recovery phases; last frame matches first neutral frame precisely.\nLock the scale, head size, foot positions, same baseline and character root center across all16 cells; upright cute body, tiny knee motion only, keep both boots planted. No framing shifts. Each cell must contain all the heroine and entire blade with margins. Exactly16 complete drawings,4columns×4rows on exactly2048×2048 square canvas.\nRequest genuine native RGBA transparency behind the characters and between cells, no painted checkerboard and no opaque backdrop. No visual effects, text, labels, numbered frames, grid lines, extra weapons, detached parts or ground shadows.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v1-raw.png",
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/hero-cute-v2.webp"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-extraction-attempt.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-05a5323d-451b-4f43-a257-0b5769dfc641.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-extraction-prompt.txt",
+      "exactPrompt": "Use case: background-extraction\nEdit target: this existing16-character4×4 sprite sheet.\nRemove only the gray-and-white checkerboard background and make all space outside the complete character silhouettes TRULY TRANSPARENT with an actual native alpha channel. This is image extraction, not a new drawing. Preserve all16 characters exactly pixel-faithfully at the same coordinates and exact same1254×1254 dimensions. Keep every detail of each full body, both attached arms, both hands, both legs, sword, hair, clothing and boots unchanged. Transparent holes between fingers/limbs, around braid and under cape must also have actual alpha zero. Antialiased alpha edges. Preserve white hair and white clothes as opaque subject. Do not draw another checkerboard, solid color, shadow, new background or label. Output a PNG file with true RGBA transparency.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v2-raw.png"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v3-raw.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-7ed2957c-4b6e-4c63-b07a-670f9ad983e7.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v3-prompt.txt",
+      "exactPrompt": "Edit the attack sheet in image1 using image2 only as exact heroine identity reference.16full-body animation cels,4×4grid. Retain all the complete girl in every cel, both arms and hands, both legs, feet, cape, braid and sword.\nCorrect the attack into a real ONE-HANDED diagonal SLASH. In the current sheet the blade wrongly stays down-right. The cyan blade TIP must rise above her head and trace a continuous arc before coming down. The right shoulder, elbow, wrist and grip rotate together naturally. Free left hand remains open beside her waist, never touching the sword.\nPrecisely these blade angles for frames1–16 left-to-right then next row. Angles measured from a horizontal blade pointing viewer-right; negative angles point UP:\n1:+35° neutral down-right.\n2:+15°.\n3:-15° tip up-right.\n4:-45° tip high up-right.\n5:-80° almost vertical tip above head.\n6:-110° windup tip above and slightly LEFT.\n7:-80° begin slash.\n8:-45° cut high-right.\n9:-15° cut upper-right.\n10:+15° cut below horizontal.\n11:+40° finish down-right.\n12:+45° small follow-through.\n13:+42° recover.\n14:+38°.\n15:+35°.\n16:+35° same exact complete neutral pose as frame1.\nRight fist only lifts from waist to shoulder during windup, right elbow comfortably bent; wrist stays naturally aligned with forearm. Guard always between fist and cyan blade; fingers visibly close around hilt, thumb opposite. Blade never emerges from wrong side of guard. No thrusting toward camera. Same curved cyan single-edged katana and natural one-handed grip in all16.\nSame face/outfit/proportions/headsize, identical scale, fixed camera, both boots planted on exactly same floor line in all equal square cells. Allow space above head for complete raised blade; keep every sword tip, boot and braid inside cell with margins. No separate parts or pieces. No armless bodies, extra fingers, deformed wrists, camera shift, zoom, weapon duplicates, effects, text or grid. Transparent sticker cutouts, empty background.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v2-raw.png",
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/hero-cute-v2.webp"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-v1-raw.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-aaf89a85-ce3c-41b4-8b13-14d6816507ab.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-prompt.txt",
+      "exactPrompt": "Use case: stylized-concept\nAsset type: exactly16 sequential full-body game-animation cels,4columns×4rows, row-major playback, on a square canvas. Request exactly2048×2048 pixels if achievable.\nInput reference1: exact same heroine design and style. Input reference2: same full-body neutral ready pose and grounded camera.\nDraw complete independent heroine in EVERY cell: entire head and face, white/lilac side braid on viewer-left, bow/flower, torso, cape, BOTH attached arms and BOTH attached hands, BOTH legs and BOTH boots, and whole curved cyan katana naturally held by her RIGHT hand (viewer-left). Each cel is one complete integrated drawing, never assembled parts.\nCharacter identity and style: cute approximately3.5-head-tall chibi anime girl from reference, large teal eyes, white/lilac hair, teal bow/yellow flower, crescent-moon brooch, white and teal dress with gold edging, brown tights, white/teal/gold boots and teal cape. Crisp ink outlines, clean cel shading. Preserve same face, outfit, hair arrangement, body proportions, sword length and colors throughout all16.\nSword-hand anatomy: one right hand only gripping one black/teal wrapped hilt, four curled fingers surround hilt with thumb on far opposite side; gold round guard directly beyond fist, cyan curved single-edged blade extends away from guard. Entire hand, wrist and hilt rotate together naturally. No bent-back wrists or backwards grips, no blade reversal. Free LEFT hand on viewer-right stays visibly separate from sword, never touches hilt.\nCamera/layout: fixed orthographic three-quarter frontal camera facing slightly viewer-right. Character scale and root center constant. Both boots planted on identical floor line at90% of EVERY equal cell; same stance width and foot positions in all16. Hero height68% of cell; whole braid, cape and blade fit with at least7% margins. Only modest gesture and tiny natural knee bend. Adjacent frames are small even in-between drawings, never unrelated pose thumbnails.\nFrames1 and16 must be the EXACT same neutral ready stance from reference, sword diagonally down-right across lower body, free hand relaxed.\nAction: calm defensive GUARD gesture.\nFrames1-4: begin neutral, tiny knee sink over3 even in-betweens while right elbow bends and raises katana gradually across chest; free left hand gradually turns open and comes forward.\nFrames5-8: right fist holds sword at upper waist/lower chest with blade directed diagonally toward viewer-right at shoulder level, natural wrist. Free left arm on viewer-right extends slightly with open palm forward in a gentle warding posture. Small even incremental changes, no crossed arms, sword never blocks face.\nFrames9-12: settle briefly in same modest guard then gradually lower open palm and sword a small step each frame.\nFrames13-16: four smooth small return steps, knees straighten to original height and hands settle to exact initial neutral ready. Last matches first.\nBackground: ACTUAL transparent PNG RGBA alpha with empty space between figures, not a rendered checkerboard. No background artwork, ground plane or shadows.\nConstraints:16 complete heroines,4×4 grid, fully contained in equal cells. Both arms and hands fully rendered on all16. No armless torsos, missing hands, detached or floating parts, extra limbs, separate swords, other objects, glow or magic effects, motion streaks, text, numbers, labels, grid lines, watermarks, camera changes, zoom, stepping, jumping, stretch or body warp.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/hero-cute-v2.webp",
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/motion/idle.webp"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-v1-raw.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-e10f68ca-d81d-4d0d-9dc8-31ad61ba9dd7.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-prompt.txt",
+      "exactPrompt": "Use case: stylized-concept\nAsset type: exactly16 sequential full-body game-animation cels,4columns×4rows, row-major playback, on a square canvas. Request exactly2048×2048 pixels if achievable.\nInput reference1: exact same heroine design and style. Input reference2: same full-body neutral ready pose and grounded camera.\nDraw complete independent heroine in EVERY cell: entire head and face, white/lilac side braid on viewer-left, bow/flower, torso, cape, BOTH attached arms and BOTH attached hands, BOTH legs and BOTH boots, and whole curved cyan katana naturally held by her RIGHT hand (viewer-left). Each cel is one complete integrated drawing, never assembled parts.\nCharacter identity and style: cute approximately3.5-head-tall chibi anime girl from reference, large teal eyes, white/lilac hair, teal bow/yellow flower, crescent-moon brooch, white and teal dress with gold edging, brown tights, white/teal/gold boots and teal cape. Crisp ink outlines, clean cel shading. Preserve same face, outfit, hair arrangement, body proportions, sword length and colors throughout all16.\nSword-hand anatomy: one right hand only gripping one black/teal wrapped hilt, four curled fingers surround hilt with thumb on far opposite side; gold round guard directly beyond fist, cyan curved single-edged blade extends away from guard. Entire hand, wrist and hilt rotate together naturally. No bent-back wrists or backwards grips, no blade reversal. Free LEFT hand on viewer-right stays visibly separate from sword, never touches hilt.\nCamera/layout: fixed orthographic three-quarter frontal camera facing slightly viewer-right. Character scale and root center constant. Both boots planted on identical floor line at90% of EVERY equal cell; same stance width and foot positions in all16. Hero height68% of cell; whole braid, cape and blade fit with at least7% margins. Only modest gesture and tiny natural knee bend. Adjacent frames are small even in-between drawings, never unrelated pose thumbnails.\nFrames1 and16 must be the EXACT same neutral ready stance from reference, sword diagonally down-right across lower body, free hand relaxed.\nAction: soft MOON SKILL casting gesture with LEFT free hand only. Sword/right hand remain in the SAME natural low diagonal-downright ready grip and position throughout, so animation comes from her free forearm, expression and tiny cape settling.\nFrames1-4: neutral, then free left hand slowly gathers inward toward her chest through3 closely spaced phases; right sword arm steady.\nFrames5-8: free left forearm lifts a few degrees per frame, open palm travels smoothly from chest toward face height on viewer-right, then turns slightly outward. Calm focused face. Left elbow remains naturally bent at her side. No raised arm over head.\nFrames9-12: palm gently extends a short distance outward at face level, then lowers toward chest by small even increments.\nFrames13-16: palm and left forearm slowly return to relaxed starting placement; final neutral precisely matches frame1.\nNo actual magic light, aura, particles or effects; this sheet is the complete heroine body animation only.\nBackground: ACTUAL transparent PNG RGBA alpha with empty space between figures, not a rendered checkerboard. No background artwork, ground plane or shadows.\nConstraints:16 complete heroines,4×4 grid, fully contained in equal cells. Both arms and hands fully rendered on all16. No armless torsos, missing hands, detached or floating parts, extra limbs, separate swords, other objects, glow or magic effects, motion streaks, text, numbers, labels, grid lines, watermarks, camera changes, zoom, stepping, jumping, stretch or body warp.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/hero-cute-v2.webp",
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/motion/idle.webp"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/power-v1-raw.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-68cba860-c4cc-4ac6-a568-768b640aff82.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/power-prompt.txt",
+      "exactPrompt": "Use case: stylized-concept\nAsset type: exactly16 sequential full-body game-animation cels,4columns×4rows, row-major playback, on a square canvas. Request exactly2048×2048 pixels if achievable.\nInput reference1: exact same heroine design and style. Input reference2: same full-body neutral ready pose and grounded camera.\nDraw complete independent heroine in EVERY cell: entire head and face, white/lilac side braid on viewer-left, bow/flower, torso, cape, BOTH attached arms and BOTH attached hands, BOTH legs and BOTH boots, and whole curved cyan katana naturally held by her RIGHT hand (viewer-left). Each cel is one complete integrated drawing, never assembled parts.\nCharacter identity and style: cute approximately3.5-head-tall chibi anime girl from reference, large teal eyes, white/lilac hair, teal bow/yellow flower, crescent-moon brooch, white and teal dress with gold edging, brown tights, white/teal/gold boots and teal cape. Crisp ink outlines, clean cel shading. Preserve same face, outfit, hair arrangement, body proportions, sword length and colors throughout all16.\nSword-hand anatomy: one right hand only gripping one black/teal wrapped hilt, four curled fingers surround hilt with thumb on far opposite side; gold round guard directly beyond fist, cyan curved single-edged blade extends away from guard. Entire hand, wrist and hilt rotate together naturally. No bent-back wrists or backwards grips, no blade reversal. Free LEFT hand on viewer-right stays visibly separate from sword, never touches hilt.\nCamera/layout: fixed orthographic three-quarter frontal camera facing slightly viewer-right. Character scale and root center constant. Both boots planted on identical floor line at90% of EVERY equal cell; same stance width and foot positions in all16. Hero height68% of cell; whole braid, cape and blade fit with at least7% margins. Only modest gesture and tiny natural knee bend. Adjacent frames are small even in-between drawings, never unrelated pose thumbnails.\nFrames1 and16 must be the EXACT same neutral ready stance from reference, sword diagonally down-right across lower body, free hand relaxed.\nAction: subtle determined POWER gesture with LEFT free hand only. Her RIGHT hand keeps the sword low in the SAME natural diagonal-downright ready grip and same position throughout, while left hand, head and torso make tiny measured changes.\nFrames1-4: neutral then free left hand slowly gathers inward over chest near crescent brooch through3 close in-betweens.\nFrames5-8: left palm settles near brooch; head nods down very slightly through2 in-betweens then begins lifting with a determined small smile. Shoulders gently open, chest lifts only slightly; keep proportions and planted feet.\nFrames9-12: head returns upright, posture held momentarily, left hand begins lowering in small increments. Sword arm steady and natural.\nFrames13-16: left hand slowly settles back to free relaxed neutral, shoulders settle; last frame matches first exactly.\nNo power aura, magical effects, bright highlights, particles or external effects, only complete heroine cel animation.\nBackground: ACTUAL transparent PNG RGBA alpha with empty space between figures, not a rendered checkerboard. No background artwork, ground plane or shadows.\nConstraints:16 complete heroines,4×4 grid, fully contained in equal cells. Both arms and hands fully rendered on all16. No armless torsos, missing hands, detached or floating parts, extra limbs, separate swords, other objects, glow or magic effects, motion streaks, text, numbers, labels, grid lines, watermarks, camera changes, zoom, stepping, jumping, stretch or body warp.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/hero-cute-v2.webp",
+        "C:/Users/erkki/OneDrive/Desktop/sts-waifu/public/assets/characters/motion/idle.webp"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-alpha.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-22a44503-c8cc-41ed-851f-a3befd3d2319.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/short-extraction-prompt.txt",
+      "exactPrompt": "Create a background-removed transparent sticker cutout of this exact artwork. Keep all artwork unchanged. Remove the entire checkered background and leave empty transparent pixels. Deliver a PNG with native transparency.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v3-raw.png"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-v2-raw.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-5ecf0726-d0b3-4055-8c78-e7f017a992e0.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-layout-prompt.txt",
+      "exactPrompt": "Use case: identity-preserve. Edit target image1 is a16-frame4×4 full-body heroine guard animation sheet. Image2 is ONLY the required smaller character scale and generous spacing layout reference.\nRepair image1's framing/size consistency. Place all16 complete heroines in equal square cells,4columns×4rows, with the SAME exact head and body scale as every other frame. Full head-to-boot heroine height must be240pixels on this1254pixel square canvas. Bottom of boots at80% of each row cell. Large empty gutters around every cel. Use image2's small safe figure size, not image1's crowded size. In the bottom row restore all missing/cropped legs and entire boots and leave60pixels of background BELOW every complete heroine. Bottom-row heroines exactly SAME size as top-row heroines, not smaller. Keep every entire sword, both hands, both arms, legs, boots, braid and cape entirely contained within its own cell. No crop or overlap across rows.\nPreserve image1's16 action poses, weapon orientation, free-hand gesture, outfit design, face identity, natural grip and crisp rendering. Do not add animation actions or move limbs to different body positions. All attached parts are naturally drawn within one complete character, never detached. No body warps or proportion changes. Reframe the entire complete character uniformly.\nTransparent sticker cutouts, empty background; no text or grid or VFX.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-v1-raw.png",
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v3-raw.png"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-v2-raw.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-21739713-b184-406c-900f-0fc06db5c308.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-layout-prompt.txt",
+      "exactPrompt": "Use case: identity-preserve. Edit target image1 is a16-frame4×4 full-body heroine skill animation sheet. Image2 is ONLY the required smaller character scale and generous spacing layout reference.\nRepair image1's framing/size consistency. Place all16 complete heroines in equal square cells,4columns×4rows, with the SAME exact head and body scale as every other frame. Full head-to-boot heroine height must be240pixels on this1254pixel square canvas. Bottom of boots at80% of each row cell. Large empty gutters around every cel. Use image2's small safe figure size, not image1's crowded size. In the bottom row restore all missing/cropped legs and entire boots and leave60pixels of background BELOW every complete heroine. Bottom-row heroines exactly SAME size as top-row heroines, not smaller. Keep every entire sword, both hands, both arms, legs, boots, braid and cape entirely contained within its own cell. No crop or overlap across rows.\nPreserve image1's16 action poses, weapon orientation, free-hand gesture, outfit design, face identity, natural grip and crisp rendering. Do not add animation actions or move limbs to different body positions. All attached parts are naturally drawn within one complete character, never detached. No body warps or proportion changes. Reframe the entire complete character uniformly.\nTransparent sticker cutouts, empty background; no text or grid or VFX.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-v1-raw.png",
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v3-raw.png"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/power-v2-rejected.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-4bb18957-e199-4199-b6a6-1b2ce80f74cf.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/power-layout-prompt.txt",
+      "exactPrompt": "Use case: identity-preserve. Edit target image1 is a16-frame4×4 full-body heroine power animation sheet. Image2 is ONLY the required smaller character scale and generous spacing layout reference.\nRepair image1's framing/size consistency. Place all16 complete heroines in equal square cells,4columns×4rows, with the SAME exact head and body scale as every other frame. Full head-to-boot heroine height must be240pixels on this1254pixel square canvas. Bottom of boots at80% of each row cell. Large empty gutters around every cel. Use image2's small safe figure size, not image1's crowded size. In the bottom row restore all missing/cropped legs and entire boots and leave60pixels of background BELOW every complete heroine. Bottom-row heroines exactly SAME size as top-row heroines, not smaller. Keep every entire sword, both hands, both arms, legs, boots, braid and cape entirely contained within its own cell. No crop or overlap across rows.\nPreserve image1's16 action poses, weapon orientation, free-hand gesture, outfit design, face identity, natural grip and crisp rendering. Do not add animation actions or move limbs to different body positions. All attached parts are naturally drawn within one complete character, never detached. No body warps or proportion changes. Reframe the entire complete character uniformly.\nTransparent sticker cutouts, empty background; no text or grid or VFX.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/power-v1-raw.png",
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-v3-raw.png"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-alpha.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-0a6ed95f-63d7-4037-b518-db32071948c5.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/square-extraction-prompt.txt",
+      "exactPrompt": "Create a background-removed transparent sticker cutout of this exact artwork. Keep all artwork unchanged, including the square canvas and existing 4×4 arrangement. Remove the entire checkered background and leave empty transparent pixels. Deliver a PNG with native transparency.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-v2-raw.png"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-alpha.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-9ec0d3d9-ada5-47e6-a53e-85ed217afbf8.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/square-extraction-prompt.txt",
+      "exactPrompt": "Create a background-removed transparent sticker cutout of this exact artwork. Keep all artwork unchanged, including the square canvas and existing 4×4 arrangement. Remove the entire checkered background and leave empty transparent pixels. Deliver a PNG with native transparency.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-v2-raw.png"
+      ]
+    },
+    {
+      "savedPath": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/power-alpha.png",
+      "originalGeneratedPath": "C:/Users/erkki/.codex/generated_images/01a077cb-b2f7-7a62-a052-c76ebb91e8d8/exec-b77a1fb5-bd81-4c2c-99e2-4790e620c570.png",
+      "promptFile": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/square-extraction-prompt.txt",
+      "exactPrompt": "Create a background-removed transparent sticker cutout of this exact artwork. Keep all artwork unchanged, including the square canvas and existing 4×4 arrangement. Remove the entire checkered background and leave empty transparent pixels. Deliver a PNG with native transparency.",
+      "referencedImagePaths": [
+        "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/power-v1-raw.png"
+      ]
+    }
+  ]
+}

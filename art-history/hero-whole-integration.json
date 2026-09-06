@@ -1,0 +1,1205 @@
+{
+  "method": "Complete illustrated character cels only; no body parts, mesh deformation or separate weapon",
+  "frameSize": [
+    512,
+    512
+  ],
+  "exposureSlots": 16,
+  "commonIdle": "attack cell 0",
+  "actions": {
+    "skill": {
+      "asset": "public/assets/characters/motion/skill-whole-v5.webp",
+      "source": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-alpha.png",
+      "uniformScale": 1.2371134020618557,
+      "sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        0
+      ],
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 63,
+            "x1": 292,
+            "y0": 33,
+            "y1": 339,
+            "anchor": 174.30906526816798,
+            "floor": 324
+          },
+          "placement": {
+            "left": 118,
+            "top": 128,
+            "width": 285,
+            "height": 380
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 368,
+            "x1": 596,
+            "y0": 38,
+            "y1": 339,
+            "anchor": 474.7712560108394,
+            "floor": 324
+          },
+          "placement": {
+            "left": 124,
+            "top": 134,
+            "width": 283,
+            "height": 374
+          }
+        },
+        {
+          "sourceIndex": 2,
+          "source": {
+            "x0": 654,
+            "x1": 895,
+            "y0": 44,
+            "y1": 336,
+            "anchor": 769.8294399271791,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 142,
+            "width": 299,
+            "height": 362
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 4,
+          "source": {
+            "x0": 59,
+            "x1": 307,
+            "y0": 334,
+            "y1": 614,
+            "anchor": 173.84397663995654,
+            "floor": 610
+          },
+          "placement": {
+            "left": 114,
+            "top": 147,
+            "width": 308,
+            "height": 348
+          }
+        },
+        {
+          "sourceIndex": 5,
+          "source": {
+            "x0": 363,
+            "x1": 596,
+            "y0": 335,
+            "y1": 615,
+            "anchor": 478.71556585695254,
+            "floor": 610
+          },
+          "placement": {
+            "left": 113,
+            "top": 148,
+            "width": 289,
+            "height": 348
+          }
+        },
+        {
+          "sourceIndex": 6,
+          "source": {
+            "x0": 657,
+            "x1": 897,
+            "y0": 317,
+            "y1": 617,
+            "anchor": 771.8306139259363,
+            "floor": 610
+          },
+          "placement": {
+            "left": 114,
+            "top": 126,
+            "width": 298,
+            "height": 372
+          }
+        },
+        {
+          "sourceIndex": 7,
+          "source": {
+            "x0": 957,
+            "x1": 1197,
+            "y0": 316,
+            "y1": 624,
+            "anchor": 1075.1911422745322,
+            "floor": 610
+          },
+          "placement": {
+            "left": 110,
+            "top": 124,
+            "width": 298,
+            "height": 382
+          }
+        },
+        {
+          "sourceIndex": 6,
+          "source": {
+            "x0": 657,
+            "x1": 897,
+            "y0": 317,
+            "y1": 617,
+            "anchor": 771.8306139259363,
+            "floor": 610
+          },
+          "placement": {
+            "left": 114,
+            "top": 126,
+            "width": 298,
+            "height": 372
+          }
+        },
+        {
+          "sourceIndex": 5,
+          "source": {
+            "x0": 363,
+            "x1": 596,
+            "y0": 335,
+            "y1": 615,
+            "anchor": 478.71556585695254,
+            "floor": 610
+          },
+          "placement": {
+            "left": 113,
+            "top": 148,
+            "width": 289,
+            "height": 348
+          }
+        },
+        {
+          "sourceIndex": 4,
+          "source": {
+            "x0": 59,
+            "x1": 307,
+            "y0": 334,
+            "y1": 614,
+            "anchor": 173.84397663995654,
+            "floor": 610
+          },
+          "placement": {
+            "left": 114,
+            "top": 147,
+            "width": 308,
+            "height": 348
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 2,
+          "source": {
+            "x0": 654,
+            "x1": 895,
+            "y0": 44,
+            "y1": 336,
+            "anchor": 769.8294399271791,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 142,
+            "width": 299,
+            "height": 362
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 368,
+            "x1": 596,
+            "y0": 38,
+            "y1": 339,
+            "anchor": 474.7712560108394,
+            "floor": 324
+          },
+          "placement": {
+            "left": 124,
+            "top": 134,
+            "width": 283,
+            "height": 374
+          }
+        },
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 63,
+            "x1": 292,
+            "y0": 33,
+            "y1": 339,
+            "anchor": 174.30906526816798,
+            "floor": 324
+          },
+          "placement": {
+            "left": 118,
+            "top": 128,
+            "width": 285,
+            "height": 380
+          }
+        },
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 63,
+            "x1": 292,
+            "y0": 33,
+            "y1": 339,
+            "anchor": 174.30906526816798,
+            "floor": 324
+          },
+          "placement": {
+            "left": 118,
+            "top": 128,
+            "width": 285,
+            "height": 380
+          }
+        }
+      ]
+    },
+    "attack": {
+      "asset": "public/assets/characters/motion/attack-whole-v5.webp",
+      "source": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/attack-alpha.png",
+      "uniformScale": 1.537739197170597,
+      "sequence": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        4,
+        2,
+        1,
+        7,
+        8,
+        9,
+        10,
+        9,
+        8,
+        0
+      ],
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 260,
+            "x1": 447,
+            "y0": 12,
+            "y1": 245,
+            "anchor": 355.0165169390627,
+            "floor": 242
+          },
+          "placement": {
+            "left": 110,
+            "top": 134,
+            "width": 289,
+            "height": 360
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 513,
+            "x1": 733,
+            "y0": 15,
+            "y1": 249,
+            "anchor": 599.2438263060931,
+            "floor": 242
+          },
+          "placement": {
+            "left": 123,
+            "top": 139,
+            "width": 340,
+            "height": 361
+          }
+        },
+        {
+          "sourceIndex": 2,
+          "source": {
+            "x0": 783,
+            "x1": 977,
+            "y0": 0,
+            "y1": 254,
+            "anchor": 870.1370105765823,
+            "floor": 243
+          },
+          "placement": {
+            "left": 122,
+            "top": 114,
+            "width": 300,
+            "height": 392
+          }
+        },
+        {
+          "sourceIndex": 4,
+          "source": {
+            "x0": 250,
+            "x1": 427,
+            "y0": 217,
+            "y1": 495,
+            "anchor": 346.1858777378228,
+            "floor": 491
+          },
+          "placement": {
+            "left": 108,
+            "top": 67,
+            "width": 274,
+            "height": 429
+          }
+        },
+        {
+          "sourceIndex": 5,
+          "source": {
+            "x0": 513,
+            "x1": 688,
+            "y0": 241,
+            "y1": 499,
+            "anchor": 606.1318125069006,
+            "floor": 492
+          },
+          "placement": {
+            "left": 113,
+            "top": 102,
+            "width": 271,
+            "height": 398
+          }
+        },
+        {
+          "sourceIndex": 6,
+          "source": {
+            "x0": 769,
+            "x1": 952,
+            "y0": 235,
+            "y1": 498,
+            "anchor": 873.139228581742,
+            "floor": 492
+          },
+          "placement": {
+            "left": 96,
+            "top": 93,
+            "width": 283,
+            "height": 406
+          }
+        },
+        {
+          "sourceIndex": 4,
+          "source": {
+            "x0": 250,
+            "x1": 427,
+            "y0": 217,
+            "y1": 495,
+            "anchor": 346.1858777378228,
+            "floor": 491
+          },
+          "placement": {
+            "left": 108,
+            "top": 67,
+            "width": 274,
+            "height": 429
+          }
+        },
+        {
+          "sourceIndex": 2,
+          "source": {
+            "x0": 783,
+            "x1": 977,
+            "y0": 0,
+            "y1": 254,
+            "anchor": 870.1370105765823,
+            "floor": 243
+          },
+          "placement": {
+            "left": 122,
+            "top": 114,
+            "width": 300,
+            "height": 392
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 513,
+            "x1": 733,
+            "y0": 15,
+            "y1": 249,
+            "anchor": 599.2438263060931,
+            "floor": 242
+          },
+          "placement": {
+            "left": 123,
+            "top": 139,
+            "width": 340,
+            "height": 361
+          }
+        },
+        {
+          "sourceIndex": 7,
+          "source": {
+            "x0": 1019,
+            "x1": 1266,
+            "y0": 259,
+            "y1": 501,
+            "anchor": 1117.2577561418555,
+            "floor": 491
+          },
+          "placement": {
+            "left": 105,
+            "top": 131,
+            "width": 381,
+            "height": 374
+          }
+        },
+        {
+          "sourceIndex": 8,
+          "source": {
+            "x0": 252,
+            "x1": 483,
+            "y0": 491,
+            "y1": 721,
+            "anchor": 344.7189947507781,
+            "floor": 718
+          },
+          "placement": {
+            "left": 113,
+            "top": 139,
+            "width": 357,
+            "height": 355
+          }
+        },
+        {
+          "sourceIndex": 9,
+          "source": {
+            "x0": 499,
+            "x1": 749,
+            "y0": 492,
+            "y1": 721,
+            "anchor": 599.9136692896972,
+            "floor": 718
+          },
+          "placement": {
+            "left": 101,
+            "top": 140,
+            "width": 386,
+            "height": 354
+          }
+        },
+        {
+          "sourceIndex": 10,
+          "source": {
+            "x0": 753,
+            "x1": 1011,
+            "y0": 494,
+            "y1": 721,
+            "anchor": 861.429773512183,
+            "floor": 718
+          },
+          "placement": {
+            "left": 89,
+            "top": 144,
+            "width": 398,
+            "height": 351
+          }
+        },
+        {
+          "sourceIndex": 9,
+          "source": {
+            "x0": 499,
+            "x1": 749,
+            "y0": 492,
+            "y1": 721,
+            "anchor": 599.9136692896972,
+            "floor": 718
+          },
+          "placement": {
+            "left": 101,
+            "top": 140,
+            "width": 386,
+            "height": 354
+          }
+        },
+        {
+          "sourceIndex": 8,
+          "source": {
+            "x0": 252,
+            "x1": 483,
+            "y0": 491,
+            "y1": 721,
+            "anchor": 344.7189947507781,
+            "floor": 718
+          },
+          "placement": {
+            "left": 113,
+            "top": 139,
+            "width": 357,
+            "height": 355
+          }
+        },
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 260,
+            "x1": 447,
+            "y0": 12,
+            "y1": 245,
+            "anchor": 355.0165169390627,
+            "floor": 242
+          },
+          "placement": {
+            "left": 110,
+            "top": 134,
+            "width": 289,
+            "height": 360
+          }
+        }
+      ]
+    },
+    "guard": {
+      "asset": "public/assets/characters/motion/guard-whole-v5.webp",
+      "source": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/guard-alpha.png",
+      "uniformScale": 1.5254237288135593,
+      "sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        0
+      ],
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 83,
+            "x1": 258,
+            "y0": 43,
+            "y1": 286,
+            "anchor": 175.2226140621556,
+            "floor": 279
+          },
+          "placement": {
+            "left": 115,
+            "top": 128,
+            "width": 268,
+            "height": 372
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 397,
+            "x1": 600,
+            "y0": 39,
+            "y1": 289,
+            "anchor": 482.5273969290291,
+            "floor": 279
+          },
+          "placement": {
+            "left": 126,
+            "top": 122,
+            "width": 311,
+            "height": 383
+          }
+        },
+        {
+          "sourceIndex": 2,
+          "source": {
+            "x0": 690,
+            "x1": 900,
+            "y0": 31,
+            "y1": 288,
+            "anchor": 779.3820157049871,
+            "floor": 279
+          },
+          "placement": {
+            "left": 120,
+            "top": 110,
+            "width": 322,
+            "height": 394
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 978,
+            "x1": 1189,
+            "y0": 42,
+            "y1": 290,
+            "anchor": 1063.2995166347819,
+            "floor": 279
+          },
+          "placement": {
+            "left": 126,
+            "top": 126,
+            "width": 323,
+            "height": 380
+          }
+        },
+        {
+          "sourceIndex": 4,
+          "source": {
+            "x0": 64,
+            "x1": 272,
+            "y0": 323,
+            "y1": 583,
+            "anchor": 147.4581103897648,
+            "floor": 573
+          },
+          "placement": {
+            "left": 129,
+            "top": 107,
+            "width": 319,
+            "height": 398
+          }
+        },
+        {
+          "sourceIndex": 5,
+          "source": {
+            "x0": 353,
+            "x1": 587,
+            "y0": 317,
+            "y1": 581,
+            "anchor": 461.22709250846714,
+            "floor": 573
+          },
+          "placement": {
+            "left": 91,
+            "top": 97,
+            "width": 358,
+            "height": 404
+          }
+        },
+        {
+          "sourceIndex": 6,
+          "source": {
+            "x0": 684,
+            "x1": 882,
+            "y0": 335,
+            "y1": 581,
+            "anchor": 767.886774427758,
+            "floor": 574
+          },
+          "placement": {
+            "left": 128,
+            "top": 123,
+            "width": 304,
+            "height": 377
+          }
+        },
+        {
+          "sourceIndex": 7,
+          "source": {
+            "x0": 931,
+            "x1": 1172,
+            "y0": 325,
+            "y1": 582,
+            "anchor": 1055.4092245007014,
+            "floor": 573
+          },
+          "placement": {
+            "left": 66,
+            "top": 110,
+            "width": 369,
+            "height": 394
+          }
+        },
+        {
+          "sourceIndex": 6,
+          "source": {
+            "x0": 684,
+            "x1": 882,
+            "y0": 335,
+            "y1": 581,
+            "anchor": 767.886774427758,
+            "floor": 574
+          },
+          "placement": {
+            "left": 128,
+            "top": 123,
+            "width": 304,
+            "height": 377
+          }
+        },
+        {
+          "sourceIndex": 5,
+          "source": {
+            "x0": 353,
+            "x1": 587,
+            "y0": 317,
+            "y1": 581,
+            "anchor": 461.22709250846714,
+            "floor": 573
+          },
+          "placement": {
+            "left": 91,
+            "top": 97,
+            "width": 358,
+            "height": 404
+          }
+        },
+        {
+          "sourceIndex": 4,
+          "source": {
+            "x0": 64,
+            "x1": 272,
+            "y0": 323,
+            "y1": 583,
+            "anchor": 147.4581103897648,
+            "floor": 573
+          },
+          "placement": {
+            "left": 129,
+            "top": 107,
+            "width": 319,
+            "height": 398
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 978,
+            "x1": 1189,
+            "y0": 42,
+            "y1": 290,
+            "anchor": 1063.2995166347819,
+            "floor": 279
+          },
+          "placement": {
+            "left": 126,
+            "top": 126,
+            "width": 323,
+            "height": 380
+          }
+        },
+        {
+          "sourceIndex": 2,
+          "source": {
+            "x0": 690,
+            "x1": 900,
+            "y0": 31,
+            "y1": 288,
+            "anchor": 779.3820157049871,
+            "floor": 279
+          },
+          "placement": {
+            "left": 120,
+            "top": 110,
+            "width": 322,
+            "height": 394
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 397,
+            "x1": 600,
+            "y0": 39,
+            "y1": 289,
+            "anchor": 482.5273969290291,
+            "floor": 279
+          },
+          "placement": {
+            "left": 126,
+            "top": 122,
+            "width": 311,
+            "height": 383
+          }
+        },
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 83,
+            "x1": 258,
+            "y0": 43,
+            "y1": 286,
+            "anchor": 175.2226140621556,
+            "floor": 279
+          },
+          "placement": {
+            "left": 115,
+            "top": 128,
+            "width": 268,
+            "height": 372
+          }
+        },
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 83,
+            "x1": 258,
+            "y0": 43,
+            "y1": 286,
+            "anchor": 175.2226140621556,
+            "floor": 279
+          },
+          "placement": {
+            "left": 115,
+            "top": 128,
+            "width": 268,
+            "height": 372
+          }
+        }
+      ]
+    },
+    "power": {
+      "asset": "public/assets/characters/motion/power-whole-v5.webp",
+      "source": "C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-whole-v5/skill-alpha.png",
+      "uniformScale": 1.2371134020618557,
+      "sequence": [
+        0,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 63,
+            "x1": 292,
+            "y0": 33,
+            "y1": 339,
+            "anchor": 174.30906526816798,
+            "floor": 324
+          },
+          "placement": {
+            "left": 118,
+            "top": 128,
+            "width": 285,
+            "height": 380
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 368,
+            "x1": 596,
+            "y0": 38,
+            "y1": 339,
+            "anchor": 474.7712560108394,
+            "floor": 324
+          },
+          "placement": {
+            "left": 124,
+            "top": 134,
+            "width": 283,
+            "height": 374
+          }
+        },
+        {
+          "sourceIndex": 2,
+          "source": {
+            "x0": 654,
+            "x1": 895,
+            "y0": 44,
+            "y1": 336,
+            "anchor": 769.8294399271791,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 142,
+            "width": 299,
+            "height": 362
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 3,
+          "source": {
+            "x0": 957,
+            "x1": 1192,
+            "y0": 40,
+            "y1": 343,
+            "anchor": 1072.3289910511228,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 136,
+            "width": 292,
+            "height": 376
+          }
+        },
+        {
+          "sourceIndex": 2,
+          "source": {
+            "x0": 654,
+            "x1": 895,
+            "y0": 44,
+            "y1": 336,
+            "anchor": 769.8294399271791,
+            "floor": 324
+          },
+          "placement": {
+            "left": 113,
+            "top": 142,
+            "width": 299,
+            "height": 362
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 368,
+            "x1": 596,
+            "y0": 38,
+            "y1": 339,
+            "anchor": 474.7712560108394,
+            "floor": 324
+          },
+          "placement": {
+            "left": 124,
+            "top": 134,
+            "width": 283,
+            "height": 374
+          }
+        },
+        {
+          "sourceIndex": 1,
+          "source": {
+            "x0": 368,
+            "x1": 596,
+            "y0": 38,
+            "y1": 339,
+            "anchor": 474.7712560108394,
+            "floor": 324
+          },
+          "placement": {
+            "left": 124,
+            "top": 134,
+            "width": 283,
+            "height": 374
+          }
+        },
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 63,
+            "x1": 292,
+            "y0": 33,
+            "y1": 339,
+            "anchor": 174.30906526816798,
+            "floor": 324
+          },
+          "placement": {
+            "left": 118,
+            "top": 128,
+            "width": 285,
+            "height": 380
+          }
+        },
+        {
+          "sourceIndex": 0,
+          "source": {
+            "x0": 63,
+            "x1": 292,
+            "y0": 33,
+            "y1": 339,
+            "anchor": 174.30906526816798,
+            "floor": 324
+          },
+          "placement": {
+            "left": 118,
+            "top": 128,
+            "width": 285,
+            "height": 380
+          }
+        }
+      ]
+    }
+  },
+  "exclusions": [
+    "Attack source cel 3 with blade near edge",
+    "Attack source cels 11-15 with size drift",
+    "Guard/skill unused late-row cels",
+    "Independent power sheet with proportion mismatch and cropped last row"
+  ]
+}

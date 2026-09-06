@@ -1,8 +1,9 @@
 import type {HeroActionKind} from './hero-actions.ts';
+import {HERO_ATLASES} from './hero-motion-art.ts';
 
 export const HERO_MOTION_MS = {attack: 560, guard: 460, skill: 520, power: 600, hit: 240} as const;
 export type MotionKind = HeroActionKind | 'hit';
-export type HeroFrame = {kind: MotionKind; frame: number; progress: number; entrance: number; recovery: number};
+export type HeroFrame = {kind: MotionKind; frame: number; next: number; mix: number; progress: number; entrance: number; recovery: number};
 export type MotionRenderer = {
   ready: (kind: MotionKind) => boolean;
   capture: () => void;
@@ -15,13 +16,14 @@ export type MotionClock = {
   cancel: (id: number) => void;
 };
 
-// Attack gets extra drawings for the cutting arc. Other gestures use six
-// cel slots (including intentional holds and shared recovery drawings).
+// More complete in-between drawings give a regular exposure cadence. Every
+// image already includes the whole body, both hands and the held katana.
+const starts=(kind:HeroActionKind)=>Array.from({length:HERO_ATLASES[kind].frames},(_,i)=>i/HERO_ATLASES[kind].frames);
 export const HERO_FRAME_STARTS = {
-  attack: [0, .10, .22, .34, .46, .60, .74, .88],
-  guard: [0, .12, .26, .40, .61, .80],
-  skill: [0, .12, .26, .40, .61, .80],
-  power: [0, .12, .26, .40, .61, .80],
+  attack: starts('attack'),
+  guard: starts('guard'),
+  skill: starts('skill'),
+  power: starts('power'),
   hit: [0],
 } as const;
 export function heroFrameAt(kind: MotionKind, elapsed: number): HeroFrame {
@@ -29,7 +31,11 @@ export function heroFrameAt(kind: MotionKind, elapsed: number): HeroFrame {
   let frame = 0;
   const starts = HERO_FRAME_STARTS[kind];
   for (let i = 1; i < starts.length; i++) if (progress >= starts[i]) frame = i;
-  return {kind, frame, progress, entrance: Math.min(1, Math.max(0, elapsed / 40)), recovery: Math.max(0, (progress - .88) / .12)};
+  const next = Math.min(frame + 1, starts.length - 1);
+  const end = starts[next] ?? 1;
+  const mix = next === frame ? 0 : (progress - starts[frame]) / (end - starts[frame]);
+  const ease = (n: number) => {const t = Math.max(0, Math.min(1, n)); return t * t * (3 - 2 * t);};
+  return {kind, frame, next, mix, progress, entrance: ease(elapsed / 70), recovery: ease((progress - .80) / .20)};
 }
 
 // One visual clock, no action queue and no gameplay lock. Capture the actual

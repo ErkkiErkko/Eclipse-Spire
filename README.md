@@ -6,7 +6,7 @@
 - 12 件遗物、3 种药剂、12 种敌人（包含 3 位首领）。
 - 分岔地图、营火休息与升级、商店购买和删牌、4 类随机事件、宝箱、战后选牌。
 - 敌人行动预告、双敌战斗、目标选择、伤害飘字、合成音效与可选背景音乐。
-- 莉雅的攻击、防御、技能与能力强化使用逐帧人物动作（攻击八帧），连续出牌可以即时衔接，支持减少动态效果。
+- 莉雅的攻击、防御、技能与能力强化使用完整人物动画图，每帧包含四肢与月刀，连续出牌即时衔接。
 - 浏览器自动存档、触屏横滑手牌、键盘操作、减少动态效果设置。
 
 ## 本地运行
@@ -41,8 +41,9 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 - lib/relic-art.ts：全部 12 件遗物的独立贴图路径和外形描述。
 - lib/potion-art.ts：全部 3 种药剂的独立贴图路径和瓶型描述。
 - lib/hero-actions.ts：根据成功打出的卡牌选择角色动作与效果提示。
-- lib/hero-motion-player.ts：可中断并从当前画面衔接的逐帧动作播放器。
-- lib/hero-motion-canvas.ts：图集预加载、人物帧绘制与中断画面保留。
+- lib/hero-motion-player.ts：可中断并从当前画面衔接的动作时钟。
+- lib/hero-motion-canvas.ts：完整人物图格绘制与中断画面保留。
+- lib/hero-motion-art.ts：完整人物动画图集的路径与格数。
 - components/hero-motion.tsx、app/hero-motion.css：角色姿势、月刃、月盾、技能与强化特效。
 - lib/game-engine.ts：使用种子随机数的纯游戏状态机。
 - components/game-scenes.tsx：冒险场景和结局。
