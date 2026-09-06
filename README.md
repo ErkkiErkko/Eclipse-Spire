@@ -6,6 +6,7 @@
 - 12 件遗物、3 种药剂、12 种敌人（包含 3 位首领）。
 - 分岔地图、营火休息与升级、商店购买和删牌、4 类随机事件、宝箱、战后选牌。
 - 敌人行动预告、双敌战斗、目标选择、伤害飘字、合成音效与可选背景音乐。
+- 莉雅的攻击、防御、技能与能力强化各有独立动作，连续出牌可以即时衔接，支持减少动态效果。
 - 浏览器自动存档、触屏横滑手牌、键盘操作、减少动态效果设置。
 
 ## 本地运行
@@ -39,6 +40,9 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 - lib/card-art.ts：全部 26 种卡牌的独立插画路径和画面描述。
 - lib/relic-art.ts：全部 12 件遗物的独立贴图路径和外形描述。
 - lib/potion-art.ts：全部 3 种药剂的独立贴图路径和瓶型描述。
+- lib/hero-actions.ts：根据成功打出的卡牌选择角色动作与效果提示。
+- lib/hero-motion-player.ts：可中断并从当前姿态衔接的短动作播放器。
+- components/hero-motion.tsx、app/hero-motion.css：角色姿势、月刃、月盾、技能与强化特效。
 - lib/game-engine.ts：使用种子随机数的纯游戏状态机。
 - components/game-scenes.tsx：冒险场景和结局。
 - components/game-ui.tsx：卡牌、图标、血条、路线地图。
@@ -47,6 +51,7 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 - lib/game-tools.ts：渐进增强的 WebMCP 战斗接口。
 - public/assets：原创动画风格图片。
 - tests/game-engine.test.mjs：21 项游戏规则回归测试。
+- tests/hero-actions.test.mjs：8 项动作分类、无效出牌、连续动作与取消清理测试。
 
 ## 美术
 
@@ -70,6 +75,7 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 卡图设计与完整生成提示词见 CARD-ART-PROMPTS.md，背景和早期版本提示词见 ART-PROMPTS.md。
 遗物贴图设计、完整生成提示词与必要修正见 RELIC-ART-PROMPTS.md。
 药剂贴图设计与完整生成提示词见 POTION-ART-PROMPTS.md。
+女主角出牌动作说明与引导施法姿势提示词见 HERO-MOTION.md。
 未使用原游戏的美术、音频、角色或卡牌文本。
 
 ## 验证
@@ -77,6 +83,8 @@ E 或 Enter 结束回合，M 查看地图，D 查看牌组，H 查看指南，Es
 21 项规则测试通过，覆盖全部卡牌的两个等级、月辉、状态、多段伤害、双目标、
 洗牌、消耗、药剂、一次性奖励、地图路径、营火、商店、事件、幕切换和存档恢复。
 TypeScript 检查与生产构建通过。
+
+角色动作额外覆盖全部 25 种可打出的卡牌、遗物附加格挡与卡牌主动作的区别、重复/无效出牌、双击与月辉终结技，以及连续动作的当前位置衔接和取消清理，共 29 项自动测试。
 
 WebMCP 在支持 document.modelContext 的浏览器中注册 read_eclipse_battle、
 play_eclipse_card、end_eclipse_turn，并复用可见界面的状态机。

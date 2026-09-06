@@ -1,4 +1,5 @@
 'use client';
+import './hero-motion.css';
 import {useCallback,useEffect,useRef,useState} from 'react';
 import type {CSSProperties} from 'react';
 import {Moon,Heart,Coins,Map as MapIcon,Layers,Settings,Swords,Shield,Sparkles,ArrowRight,FlaskConical,CircleHelp,Volume2,VolumeX,RotateCcw,ScrollText,X,Flame,MousePointer2} from 'lucide-react';
@@ -10,11 +11,15 @@ import {CARDS,CHAPTERS,FOES,KEYWORDS,RELICS} from '@/lib/game-data';
 import {createGame,enemyDamage,isTargeted,maxEnergy,transition,validSave} from '@/lib/game-engine';
 import type {Action,Enemy,GameState,OwnedCard} from '@/lib/game-engine';
 import {music,sfx} from '@/lib/game-audio';
-import {HERO_ART,FOE_ART} from '@/lib/character-art';
+import {FOE_ART} from '@/lib/character-art';
+import {HeroMotion} from '@/components/hero-motion';
+import {heroActionForPlay} from '@/lib/hero-actions';
+import type {HeroAction} from '@/lib/hero-actions';
 import {registerGameTools} from '@/lib/game-tools';
 const SAVE_KEY='eclipse-spire-save-v1';
 export default function Home(){
  const [s,setS]=useState<GameState>(()=>createGame()),stateRef=useRef(s);
+ const [heroAction,setHeroAction]=useState<HeroAction|null>(null);
  const [ready,setReady]=useState(false),[modal,setModal]=useState<string|null>(null),[selected,setSelected]=useState<number|null>(null),[target,setTarget]=useState<number|null>(null);
  const [busy,setBusy]=useState(false),busyRef=useRef(false),[motion,setMotion]=useState(true),[sound,setSound]=useState(true),soundRef=useRef(true),[bgm,setBgm]=useState(false);
  const [toast,setToast]=useState(''),[saved,setSaved]=useState(true),[restart,setRestart]=useState(false),[reduced,setReduced]=useState(false);
@@ -26,31 +31,34 @@ export default function Home(){
    const prefs=JSON.parse(localStorage.getItem('eclipse-settings')||'{}');if(typeof prefs.sound==='boolean'){setSound(prefs.sound);soundRef.current=prefs.sound;}if(typeof prefs.motion==='boolean')setMotion(prefs.motion);
   }catch{notify('本次旅途暂时无法读取本地存档。');}
   const media=window.matchMedia('(prefers-reduced-motion: reduce)');setReduced(media.matches);
+  const onMotionPreference=()=>setReduced(media.matches);media.addEventListener('change',onMotionPreference);
   stateRef.current=next;setS(next);setReady(true);
-  return()=>{timers.current.forEach(clearTimeout);if(toastTimer.current)clearTimeout(toastTimer.current);music(false);};
+  return()=>{media.removeEventListener('change',onMotionPreference);timers.current.forEach(clearTimeout);if(toastTimer.current)clearTimeout(toastTimer.current);music(false);};
  },[notify]);
  useEffect(()=>{if(!ready)return;try{localStorage.setItem(SAVE_KEY,JSON.stringify(s));setSaved(true);}catch{setSaved(false);}},[s,ready]);
  useEffect(()=>{soundRef.current=sound;if(ready){try{localStorage.setItem('eclipse-settings',JSON.stringify({sound,motion}));}catch{}}},[sound,motion,ready]);
+ useEffect(()=>{if(!motion||reduced)setHeroAction(null);},[motion,reduced]);
  const playSound=useCallback((kind:Parameters<typeof sfx>[0])=>{if(soundRef.current)sfx(kind);},[]);
  const apply=useCallback((action:Action)=>{
   const old=stateRef.current,next=transition(old,action);if(next===old)return old;
+  const gesture=heroActionForPlay(old,next,action);
+  if(gesture&&motion&&!reduced)setHeroAction(gesture);else if(action.type==='end'||next.phase!==old.phase)setHeroAction(null);
   stateRef.current=next;setS(next);
   if(next.phase!==old.phase){setSelected(null);setTarget(null);playSound(next.phase==='reward'||next.phase==='victory'?'win':'click');}
   return next;
- },[playSound]);
- const lock=useCallback((ms:number)=>{busyRef.current=true;setBusy(true);timers.current.push(setTimeout(()=>{busyRef.current=false;setBusy(false);},ms));},[]);
+ },[playSound,motion,reduced]);
  const clickCard=useCallback((owned:OwnedCard)=>{
   const game=stateRef.current;if(busyRef.current||game.phase!=='combat')return;const d=CARDS[owned.id];
   if(d.type==='curse'){notify('旧日梦魇无法打出，回合结束时失去 2 点生命。');return;}
   if(game.combat.energy<d.cost){notify('能量不足。可以使用药剂，或结束回合。');return;}
   if(isTargeted(owned.id)){setSelected(old=>old===owned.uid?null:owned.uid);playSound('card');return;}
-  playSound(d.type==='skill'?'block':'card');apply({type:'play',uid:owned.uid});setSelected(null);lock(240);
- },[apply,lock,notify,playSound]);
+  playSound(d.type==='skill'?'block':'card');apply({type:'play',uid:owned.uid});setSelected(null);
+ },[apply,notify,playSound]);
  const clickEnemy=useCallback((enemy:Enemy)=>{
   if(busyRef.current||stateRef.current.phase!=='combat'||enemy.hp<=0)return;setTarget(enemy.uid);
-  if(selected!==null){const old=stateRef.current;const next=apply({type:'play',uid:selected,target:enemy.uid});if(next!==old)playSound('hit');setSelected(null);lock(330);}
+  if(selected!==null){const old=stateRef.current;const next=apply({type:'play',uid:selected,target:enemy.uid});if(next!==old)playSound('hit');setSelected(null);}
   else notify(FOES[enemy.id].name+'：'+enemy.intent.label+(['attack','multi'].includes(enemy.intent.kind)?'，预计造成 '+enemyDamage(stateRef.current,enemy)+(enemy.intent.hits?' × '+enemy.intent.hits:'')+' 点伤害。':''));
- },[selected,apply,lock,notify,playSound]);
+ },[selected,apply,notify,playSound]);
  const endTurn=useCallback(()=>{
   if(busyRef.current||stateRef.current.phase!=='combat')return;setSelected(null);busyRef.current=true;setBusy(true);playSound('end');
   timers.current.push(setTimeout(()=>{apply({type:'end'});playSound('hit');timers.current.push(setTimeout(()=>{busyRef.current=false;setBusy(false);},300));},motion&&!reduced?650:100));
@@ -67,7 +75,7 @@ export default function Home(){
   };window.addEventListener('keydown',handler);return()=>window.removeEventListener('keydown',handler);
  },[s,modal,restart,clickCard,endTurn]);
  useEffect(()=>registerGameTools(()=>stateRef.current,apply,()=>busyRef.current,()=>setSelected(null)),[apply]);
- const newRun=()=>{timers.current.forEach(clearTimeout);timers.current=[];busyRef.current=false;setBusy(false);const next=createGame(Date.now());stateRef.current=next;setS(next);setRestart(false);setModal(null);setSelected(null);setTarget(null);notify('新的月亮，新的旅途。');};
+ const newRun=()=>{setHeroAction(null);timers.current.forEach(clearTimeout);timers.current=[];busyRef.current=false;setBusy(false);const next=createGame(Date.now());stateRef.current=next;setS(next);setRestart(false);setModal(null);setSelected(null);setTarget(null);notify('新的月亮，新的旅途。');};
  const c=s.combat,chapter=CHAPTERS[s.act],living=c.enemies.filter(e=>e.hp>0),selectedCard=c.hand.find(x=>x.uid===selected),combatVisible=s.phase==='combat'||s.phase==='reward';
  const act=(a:Action)=>{const next=apply(a);setSelected(null);setTarget(null);playSound('click');if(a.type==='chest')notify(next.eventText);if(a.type==='buy')notify(next.log[0]);};
  const battleEffects=(who:number|'hero')=><div className="floating-effects" key={s.serial+'-'+who}>{s.effects.filter(e=>e.target===who).map((effect,i)=><span key={i} className={'float-number '+effect.kind} style={{'--effect-delay':i*70+'ms','--effect-x':(i%3-1)*28+'px'} as CSSProperties}>{effect.kind==='damage'?(effect.value===0?'格挡':'−'+effect.value):'+'+effect.value}{effect.kind==='moon'&&' 月辉'}{effect.kind==='block'&&' 格挡'}</span>)}</div>;
@@ -78,7 +86,7 @@ export default function Home(){
  <div className="potion-bar">{Array.from({length:3},(_,i)=>{const potion=POTIONS[s.potions[i]];return <Tip key={i} title={potion?potion.name:'空药剂槽'} text={potion?potion.desc:'最多携带 3 瓶药剂。'}><button className={'potion-slot '+(potion?s.potions[i]:'empty')} onClick={()=>potion&&drink(i)} disabled={!potion||busy||s.phase!=='combat'} aria-label={potion?'使用'+potion.name:'空药剂槽'}>{potion?<PotionIcon id={s.potions[i]} size={38}/>:<FlaskConical size={23}/>}</button></Tip>;})}<span className="potion-bar-label">药剂</span></div>
  {combatVisible&&<><section className="battle"><div className="encounter-title"><span>{chapter.en}</span><h1>{c.boss?'最后的祷告。':c.elite?'不可退让的一战。':chapter.title}</h1><p>{c.boss?'击败首领，结束这一幕。':c.elite?'更危险的敌人，也守护着更珍贵的遗物。':'击败拦路的守卫，向尖塔深处前进。'}</p></div><div className="turn-banner"><span/>{busy?'敌方行动':'你的回合'} <small>{String(c.turn).padStart(2,'0')}</small><span/></div>
  <div className={'combatants '+(living.length>1?'multiple-enemies':'')}>
- <div className={'fighter hero '+(s.effects.some(e=>e.target==='hero'&&e.kind==='damage'&&e.value>0)?'is-hit':'')} key={'hero-'+s.serial}><div className="fighter-art"><img src={HERO_ART.src} alt={HERO_ART.alt} decoding="async" draggable={false}/>{battleEffects('hero')}</div><div className="fighter-label">月咏 · 莉雅<small>月之剑姬</small></div><HealthBar hp={s.hp} max={s.maxHp}/><div className="status-row"><Tip title="月辉" text={KEYWORDS[0][1]}><span className="moon-status"><Moon size={13}/>{c.moon}</span></Tip>{c.block>0&&<Tip title="格挡" text={KEYWORDS[1][1]}><span className="block-status"><Shield size={13}/>{c.block}</span></Tip>}{c.strength>0&&<Tip title="力量" text={KEYWORDS[2][1]}><span><Swords size={13}/>{c.strength}</span></Tip>}{c.weak>0&&<Tip title="虚弱" text={KEYWORDS[4][1]}><span className="bad-status"><Rune name="wind" size={13}/>{c.weak}</span></Tip>}{c.moonPerTurn>0&&<Tip title="月之呼吸" text={'每回合开始获得 '+c.moonPerTurn+' 月辉。'}><span><Sparkles size={13}/>{c.moonPerTurn}</span></Tip>}{c.eclipse>0&&<Tip title="月蚀降临" text={'每次攻击获得 '+c.eclipse+' 月辉和 '+c.exhaust.filter(x=>x.id==='eclipse').reduce((n,x)=>n+(x.up?3:2),0)+' 格挡。'}><span><Rune name="eclipse" size={13}/>{c.eclipse}</span></Tip>}</div></div>
+ <div className="fighter hero"><HeroMotion action={heroAction} enabled={motion&&!reduced} impact={s.effects.some(e=>e.target==='hero'&&e.kind==='damage'&&e.value>0)?s.serial:null}>{battleEffects('hero')}</HeroMotion><div className="fighter-label">月咏 · 莉雅<small>月之剑姬</small></div><HealthBar hp={s.hp} max={s.maxHp}/><div className="status-row"><Tip title="月辉" text={KEYWORDS[0][1]}><span className="moon-status"><Moon size={13}/>{c.moon}</span></Tip>{c.block>0&&<Tip title="格挡" text={KEYWORDS[1][1]}><span className="block-status"><Shield size={13}/>{c.block}</span></Tip>}{c.strength>0&&<Tip title="力量" text={KEYWORDS[2][1]}><span><Swords size={13}/>{c.strength}</span></Tip>}{c.weak>0&&<Tip title="虚弱" text={KEYWORDS[4][1]}><span className="bad-status"><Rune name="wind" size={13}/>{c.weak}</span></Tip>}{c.moonPerTurn>0&&<Tip title="月之呼吸" text={'每回合开始获得 '+c.moonPerTurn+' 月辉。'}><span><Sparkles size={13}/>{c.moonPerTurn}</span></Tip>}{c.eclipse>0&&<Tip title="月蚀降临" text={'每次攻击获得 '+c.eclipse+' 月辉和 '+c.exhaust.filter(x=>x.id==='eclipse').reduce((n,x)=>n+(x.up?3:2),0)+' 格挡。'}><span><Rune name="eclipse" size={13}/>{c.eclipse}</span></Tip>}</div></div>
  <div className="versus" aria-hidden="true">✧</div><div className="enemy-party">{c.enemies.map(enemy=><div key={enemy.uid} className={'enemy-wrap '+(enemy.hp<=0?'fallen':'')}><button className={['fighter','enemy',selected?'targetable':'',target===enemy.uid?'target-locked':'',s.effects.some(e=>e.target===enemy.uid&&e.kind==='damage')?'is-hit':'',c.boss?'boss-fighter':''].join(' ')} key={enemy.uid+'-'+s.serial} disabled={enemy.hp<=0||busy||s.phase!=='combat'} onClick={()=>clickEnemy(enemy)} aria-label={FOES[enemy.id].name+'，生命 '+enemy.hp+'，'+enemy.intent.label+(selected?'，点击打出所选卡牌':'')}>
  <div className={'intent '+enemy.intent.kind}><Rune name={enemy.intent.kind==='guard'?'shield':enemy.intent.kind==='buff'?'sparkles':enemy.intent.kind==='debuff'?'eye':'swords'} size={20}/><strong>{['attack','multi'].includes(enemy.intent.kind)?enemyDamage(s,enemy):enemy.intent.value}{enemy.intent.hits&&<small>×{enemy.intent.hits}</small>}</strong><span>{enemy.intent.label}</span></div><div className="fighter-art"><img src={FOE_ART[enemy.id].src} alt={FOE_ART[enemy.id].alt} decoding="async" draggable={false}/>{battleEffects(enemy.uid)}{selected&&<div className="target-reticle"><span/><MousePointer2 size={25}/><small>选择目标</small></div>}</div><div className="fighter-label">{FOES[enemy.id].name}<small>{FOES[enemy.id].subtitle}</small></div><HealthBar hp={enemy.hp} max={enemy.maxHp} enemy/>
  </button><div className="status-row enemy-status">{enemy.block>0&&<Tip title="格挡" text={KEYWORDS[1][1]}><span className="block-status"><Shield size={13}/>{enemy.block}</span></Tip>}{enemy.strength>0&&<Tip title="力量" text={KEYWORDS[2][1]}><span><Swords size={13}/>{enemy.strength}</span></Tip>}{enemy.weak>0&&<Tip title="虚弱" text={KEYWORDS[4][1]}><span><Rune name="wind" size={13}/>{enemy.weak}</span></Tip>}{enemy.vulnerable>0&&<Tip title="易伤" text={KEYWORDS[3][1]}><span className="bad-status"><Rune name="zap" size={13}/>{enemy.vulnerable}</span></Tip>}{enemy.poison>0&&<Tip title="中毒" text={KEYWORDS[5][1]}><span className="poison-status"><Rune name="flower" size={13}/>{enemy.poison}</span></Tip>}</div></div>)}</div>
