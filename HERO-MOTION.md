@@ -1,38 +1,39 @@
-# 莉雅的完整人物动画
+# 莉雅的出牌动作
 
-每个动画格都是已经画好的完整女主角，包括身体、四肢、双手、衣服、披风、辫子以及握在手中的月刀。播放器不拆分人体部件，不拼接手腕，不变形身体网格，也不单独旋转刀或手。
-
-| 行为 | 动作 | 时长 |
+| 行为 | 动作与效果 | 时长 |
 | --- | --- | --- |
-| 攻击 | 抬刀、屈肘蓄势、斜向劈砍、收刀归位 | 560 ms |
-| 防御 | 轻微下沉、架刀、伸掌抵挡、收回 | 460 ms |
-| 技能 | 空手收至胸前、抬臂摊掌、落手 | 520 ms |
-| 能力 | 空手在胸前聚力、短暂保持、落手，配合金色强化效果 | 600 ms |
+| 攻击 | 短蓄势、向右突进、青白月刃扫出、收剑回位；双月追加第二道斩光，月辉终结技增强斩光 | 430 ms |
+| 防御 | 重心后移、收身架势、半月盾从身体右侧展开并回收 | 400 ms |
+| 其他技能 | 闭眼抬掌引导施法；月辉、抽牌、治疗、负面效果使用不同符号与色彩 | 480 ms |
+| 能力强化 | 短暂下沉后提身、三层金色月环逐级升起、胸前强化符号亮起并淡出 | 600 ms |
 
-## 美术与播放
+动作由成功的卡牌状态变化触发；攻击附带月辉仍采用攻击动作，技能因遗物获得额外格挡不会被误判为防御。格挡兼抽牌的卡牌优先表现防御主动作。受击另用 240 ms 短促后仰。
 
-完整动作图使用内置 imagegen 生成。每张图检查人物比例、握刀姿势、刀尖轨迹及相邻姿势差异。图集整理只提取完整人物、保留原生透明像素、等比缩放和对齐站位，不重绘或分离手臂、手掌与武器。
+动画只改变视觉图层。卡牌效果、资源扣除和手牌更新即时生效，没有等待动画结束的出牌锁。下一张牌会读取当前可见位移和姿势透明度，再取消上一个动画并平滑衔接；不会堆积动作队列。数值、角色名称、意图和点击区域保持原位，特效不接收指针事件。
 
-每类动作按16个曝光段播放，单段约29–38ms。收势会复用已经检查过的完整人物图，不把重复曝光描述为额外绘制帧。切换边界仅使用短暂的整图淡化，保持插画自身的比例。首尾采用同一张完整待机图。游戏画布预留头顶空间容纳抬刀。
+攻击和防御沿用当前干净的莉雅立绘，通过位移、旋转、轻微形变和月刃/月盾特效完成；技能与能力牌额外使用同一张闭眼抬掌姿势，以短交叉淡化进出。所有动作恢复到原有待机立绘。动作生成阶段的攻击、防御候选因背景透明度和局部结构问题未被采用。
 
-出牌效果、资源扣除和手牌更新立即生效。动作没有队列或出牌锁，新动作可以中断旧动作；中断时保留当前画面作短暂衔接。只维持一个 requestAnimationFrame 循环，取消、卸载、场景切换和减少动态效果会停止旧回调。素材未就绪时保留完整的待机角色，不补播过期动作。受击仍是短促的整体震动。
+关闭动态效果或启用系统减少动态效果时，立即停止动作与特效；重新打开时不会重播旧动作。图片尚未加载时保留待机立绘并播放位移效果，不会出现空白角色。动作数据不写入存档。
 
-## 代码
+## 施法姿势
 
-- `lib/hero-motion-art.ts`：四套完整人物图集和格数。
-- `lib/hero-motion-player.ts`：动作时钟、曝光位置、取消和立即中断。
-- `lib/hero-motion-canvas.ts`：完整图格绘制、透明像素合成和资源缓存。
-- `components/hero-motion.tsx`、`app/hero-motion.css`：角色展示及月刃、月盾、技能、强化特效。
+使用内置 imagegen，以当前莉雅立绘作为严格角色与画风参考。选定 PNG 为 1024 × 1536、真实 RGBA，保留原生尺寸，以 WebP 质量 92、透明度质量 100 编码为 [hero-channel.webp](public/assets/characters/hero-channel.webp)，没有裁切、缩放或手工改画。
 
-图集位于 `public/assets/characters/motion/*-whole-v5.webp`。旧图集仅作为历史素材保留，不用于新动作。已经移除试验性的身体网格、骨骼部件与独立手腕贴图。
+原始图片：`C:/Users/erkki/.codex/visualizations/2026/09/05/01a07002-3ca7-7533-81cb-b0885582fb8d/hero-motion/channel.png`
 
+完整提示词：
 
-## 取舍与验证
+```text
+Use case: identity-preserve.
+Asset type: ONE transparent full-body game character magic-channeling key pose shared by skill and self-buff animations.
+Input image 1 is the STRICT identity, costume, proportions, linework, palette and cel-shading reference for the existing character Liya. Create the SAME silver-haired, teal-eyed chibi girl, with exactly the same cute face, large head/small body proportions, side braid, teal hair bow, gold flower hair ornament, ivory-and-teal gold-trimmed outfit, moon brooch, dark tights, white teal/gold boots, and cyan-bladed sword. Do not redesign her.
+Change only the pose and facial expression: facing right in the same three-quarter orientation, poised upright with feet planted close together. Her free hand is lifted near her chest/chin with a relaxed open palm as though gathering moonlight, while her other hand holds the sword lowered diagonally at her side. Eyes softly closed with a peaceful small smile. The braid and cape gently float to the left. Clean anatomically coherent hands. The cyan sword is a solid prop, with no emitted glow or VFX.
+Composition: requested portrait 1024x1536. Whole body, hair, boots, hands, cape and entire sword contained inside the canvas. Character body centered; top of hair at 6-8% and boot soles at 96% canvas height, total visible character height 88-92%. Avoid excess empty space or clipping.
+Background: genuinely transparent PNG RGBA, alpha 0 outside the clean character silhouette, including gaps between limbs and sword. Preserve crisp anti-aliased alpha edges. No background color, scene, ground plane, cast shadow, checkerboard, text, UI, cards, extra characters, aura, magical effects, particles, glowing moons or energy. Magic will be animated separately. Exactly one image; no variants, no contact sheet.
+```
 
-攻击采用10张完整姿势、防御与技能各采用8张完整姿势，再用经过检查的完整帧组成收势。强化采用技能图中的4张完整收手/聚力姿势，并使用独立的保持时间和金色效果；独立生成的强化图因人物比例与其余动作不同而弃用。全部动作共有16个播放段，重复播放段不计作新绘制帧。
+## 参考与验证
 
-原始提示词与生成记录保存在 `art-history/hero-whole-prompts.json`，最终选帧、等比缩放与完整图格放置记录在 `art-history/hero-whole-integration.json`。裁切不完整、握持跳变或身材比例不同的候选没有接入游戏。
+设计参考方向为《杀戮尖塔 2》的角色辨识度与动作表达。查阅了 [Mega Crit 官方动画制作文章](https://www.megacrit.com/news/2026-7-17-neowsletter-issue-24/)；本实现采用独立动作与特效，没有使用原游戏美术或动画数据，也未测量或声称复制其动画时序。
 
-使用游戏实际 Canvas 渲染器导出并逐格检查完整动作，确认被选中的四肢、手腕和刀均来自同一张完整插画。34项规则和播放器测试通过；实际渲染验证了四套图集解码、完整播放、归位及中断时可见像素保持。类型检查通过。生成式逐帧插画仍有少量线条细节变化，不能将其等同于人工逐帧精修。
-
-浏览器中的最终完整图播放器测量：单次绘制中位数约0.1ms，95分位约0.2–0.5ms，刷新间隔中位数约14.5–14.6ms；中断起始像素差最大为1（8位颜色舍入差）。这些是本机结果，不代表所有设备帧率。实际战斗页面也检查了完整待机角色的比例、边界与位置。四张图集采用512px方格，避免无必要的超大解码画布。
+8 项动作测试覆盖全部可打出卡牌的动作分类、遗物附加效果、非法/重复输入、非出牌动作、连续出牌、双段与月辉攻击、动作中断衔接、取消清理、资源加载回退和归位时长。与 21 项游戏规则测试一并运行。未进行浏览器交互或动画录屏验收。

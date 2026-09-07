@@ -2,22 +2,21 @@
 .hero-motion-stage { isolation:isolate; }
 .hero-breath,.hero-motion-body { position:absolute;inset:0;pointer-events:none; }
 .hero-breath { animation:breathe 5s ease-in-out infinite; }
-.hero-motion-body { pointer-events:none; }
+.hero-motion-body { transform-origin:50% 96%;will-change:transform; }
 .hero-motion-stage .hero-motion-sprite { position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;animation:none;pointer-events:none; }
-.hero-cel-canvas { position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:auto;height:133.333333%;max-width:none;opacity:0;pointer-events:none;filter:drop-shadow(0 0 12px #5eaaab33); }
-.hero-cel-canvas[data-ready="true"] { opacity:1; }
-.hero-cel-canvas[data-ready="true"] + .hero-idle-fallback { visibility:hidden; }
+.hero-idle-pose { opacity:1; }
+.hero-channel-pose { opacity:0; }
 .hero-action-vfx { position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:3;color:#a9fff3;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;animation:hero-vfx-life var(--action-duration) linear both;filter:drop-shadow(0 0 3px #69e8dc88); }
 .hero-action-vfx.cue-heal { color:#b4efbf; }
 .hero-action-vfx.cue-hex { color:#c8b5ff; }
 .hero-action-vfx.action-power { color:#ffedb1;filter:drop-shadow(0 0 4px #efdb9470); }
-.hero-slash { transform-origin:150px 205px;animation:hero-slash-sweep 320ms 160ms cubic-bezier(.16,.76,.25,1) both; }
-.hero-slash path { stroke-dasharray:1;stroke-dashoffset:1;animation:hero-slash-ink 300ms 160ms ease-out both; }
+.hero-slash { transform-origin:150px 205px;animation:hero-slash-sweep 370ms cubic-bezier(.16,.76,.25,1) both; }
+.hero-slash path { stroke-dasharray:1;stroke-dashoffset:1;animation:hero-slash-ink 340ms ease-out both; }
 .slash-haze { stroke:#52dedb;stroke-width:17;opacity:.32; }
 .slash-edge { stroke:#edfff5;stroke-width:4; }
 .is-charged .slash-haze { stroke:#b7d9ff;stroke-width:26;opacity:.48; }
 .is-charged .slash-edge { stroke-width:6; }
-.slash-second,.slash-second path { animation-delay:250ms; }
+.slash-second,.slash-second path { animation-delay:85ms; }
 .hero-strike-sparks { stroke-width:2.6;transform-origin:212px 207px;animation:hero-strike-sparks 290ms 95ms ease-out both; }
 .hero-moon-guard { transform-origin:169px 214px;animation:hero-guard-brace var(--action-duration) ease-out both; }
 .guard-wash { fill:#70e7e4;fill-opacity:.09;stroke:#9bf5ec;stroke-width:1.5;stroke-opacity:.5; }
